@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyMind - Trang chủ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="home-bg">
+
+    <nav class="navbar">
+    <div class="logo">
+        <img src="assets/image/logo.png" alt="MoneyMind">
+        <span>MoneyMind</span>
+    </div>
+
+    <div class="nav-right-group">
+        <ul class="nav-links">
+            <li><a href="#">Danh mục</a></li>
+            <li><a href="#">Giao dịch</a></li>
+            <li><a href="#">Mục tiêu</a></li>
+        </ul>
+        
+        <div class="nav-icons">
+            <img src="assets/icon/bell.png" alt="Notification" class="icon">
+            <img src="assets/icon/user-avatar.png" alt="User" class="avatar-img">
+        </div>
+    </div>
+</nav>
+
+    <div class="container">
+        <header class="header-card">
+            <div class="balance-info">
+                <div class="user-pic-circle"></div> <div>
+                    <p>Số dư hiện tại</p>
+                    <h2>200.000.000 đ</h2>
+                </div>
+            </div>
+            <div class="alert-info">
+                <p>Chi tiêu tháng 4 này đã <span class="highlight">tăng 50%</span> so với tháng 3 trước!</p>
+            </div>
+        </header>
+
+        <section class="stats-section">
+    <div class="stats-left">
+        <div class="stats-header">
+            <h3>Thống kê chung</h3>
+            <button class="filter-btn">Bộ lọc</button>
+        </div>
+
+        <div class="stat-item">
+            <span>Ăn uống:</span>
+            <div class="stat-amount yellow-bg">700.000 đ</div>
+        </div>
+        <div class="stat-item">
+            <span>Chi phí đi lại:</span>
+            <div class="stat-amount green-bg">300.000 đ</div>
+        </div>
+        <div class="stat-item">
+            <span>Chi phí cố định:</span>
+            <div class="stat-amount purple-bg">1.000.000 đ</div>
+        </div>
+    </div>
+
+    <div class="stats-right">
+        <canvas id="myPieChart"></canvas>
+    </div>
+</section>
+
+        <section class="recent-transactions">
+            <h3>Giao dịch gần đây</h3>
+            <div class="trans-list">
+                <div class="trans-card">
+                    <p class="date">Ngày 20/3/2026</p>
+                    <p class="desc">HUYNHNGOCNHAUYEN Chuyển khoản 500.000vnd, Sinh nhat zui ze</p>
+                    <p class="balance-after">Số dư tài khoản: 100.000.000 vnd</p>
+                </div>
+                </div>
+        </section>
+
+
+    </div>
+
+    <script src="js/chart-setup.js"></script>
+</body>
+</html>
