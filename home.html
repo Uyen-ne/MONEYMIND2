@@ -12,7 +12,7 @@
 
     <nav class="navbar">
     <div class="logo">
-        <img src="assets/image/logo.png" alt="MoneyMind">
+        <img src="assets/icon/logo.png" alt="MoneyMind">
         <span>MoneyMind</span>
     </div>
 
@@ -25,19 +25,52 @@
         
         <div class="nav-icons">
             <img src="assets/icon/bell.png" alt="Notification" class="icon">
-            <img src="assets/icon/user-avatar.png" alt="User" class="avatar-img">
+            <img src="assets/icon/avatar.png" alt="User" class="avatar-img">
         </div>
     </div>
-</nav>
+    </nav>
+
+    <div class="avatar-dropdown" id="avatarMenu">
+    <ul>
+        <li>Ví của tôi</li>
+        <li>Xuất file</li>
+        <li onclick="window.location.href='change-password.html'">Thay đổi mật khẩu</li>
+        <li onclick="showModal('logoutModal')">Đăng xuất</li>
+        <li onclick="showModal('deleteModal')">Xóa tài khoản</li>
+    </ul>
+    </div>
+
+    <div class="modal-overlay" id="logoutModal">
+    <div class="modal-card">
+        <p>Bạn có chắc chắn muốn đăng xuất?</p>
+        <div class="modal-btns">
+            <button class="btn-confirm">Đồng ý</button>
+            <button class="btn-cancel" onclick="hideModal('logoutModal')">Thoát</button>
+        </div>
+    </div>
+    </div>
+
+    <div class="modal-overlay" id="deleteModal">
+    <div class="modal-card">
+        <p>Bạn có chắc chắn muốn xóa tài khoản?</p>
+        <div class="modal-btns">
+            <button class="btn-cancel" onclick="handleDeleteAccount()">Đồng ý</button>
+            <button class="btn-confirm" onclick="hideModal('deleteModal')">Thoát</button>
+        </div>
+    </div>
+    </div>
 
     <div class="container">
         <header class="header-card">
             <div class="balance-info">
-                <div class="user-pic-circle"></div> <div>
-                    <p>Số dư hiện tại</p>
-                    <h2>200.000.000 đ</h2>
-                </div>
-            </div>
+                <div class="user-avatar-container">
+                     <img src="assets/icon/avatar.png" alt="Avatar" class="user-avatar-img">
+                 </div>
+             <div>
+        <p>Số dư hiện tại</p>
+        <h2>200.000.000 đ</h2>
+    </div>
+</div>
             <div class="alert-info">
                 <p>Chi tiêu tháng 4 này đã <span class="highlight">tăng 50%</span> so với tháng 3 trước!</p>
             </div>

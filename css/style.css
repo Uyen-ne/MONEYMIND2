@@ -10,17 +10,16 @@ body, html {
     height: 100%;
 }
 
-/* --- Vùng Chứa Chính (Main Container) --- */
+/*  Vùng Chứa Chính (Main Container) */
 .main-container {
     height: 100vh;
     width: 100%;
     position: relative;
-    /* Phông nền màu xanh dương nhạt phía trên */
     background-color: #E6F3F7; 
-    overflow: hidden; /* Tránh cuộn trang */
+    overflow: hidden; 
 }
 
-/* --- PHẦN PHÔNG NỀN PHÍA DƯỚI --- */
+/*  PHẦN PHÔNG NỀN PHÍA DƯỚI  */
 .bottom-background {
     position: absolute;
     bottom: 0;
@@ -35,7 +34,7 @@ body, html {
     background-repeat: no-repeat;
 }
 
-/* --- Khung Chứa Thẻ Đăng Nhập để Căn Giữa (Login Wrapper) --- */
+/*  Khung Chứa Thẻ Đăng Nhập để Căn Giữa (Login Wrapper) */
 .login-wrapper {
     display: flex;
     justify-content: center;
@@ -46,7 +45,7 @@ body, html {
     z-index: 2;
 }
 
-/* --- Thẻ Đăng Nhập Chính (Login Card) --- */
+/* Thẻ Đăng Nhập Chính (Login Card)  */
 .login-card {
     background: rgba(255, 255, 255, 0.9); 
     padding: 50px 40px;
@@ -57,7 +56,7 @@ body, html {
     text-align: center;
 }
 
-/* --- Tiêu Đề Đăng Nhập --- */
+/*  Tiêu Đề Đăng Nhập  */
 .login-title {
     font-size: 28px;
     font-weight: 600;
@@ -65,7 +64,7 @@ body, html {
     margin-bottom: 30px;
 }
 
-/* --- Nhóm Input (Ô nhập liệu) --- */
+/*  Nhóm Input (Ô nhập liệu)  */
 .input-group {
     text-align: left;
     margin-bottom: 20px;
@@ -94,7 +93,7 @@ body, html {
     border-color: #5BC2F2; 
 }
 
-/* --- Nút Đăng Nhập --- */
+/*  Nút Đăng Nhập  */
 .login-button {
     width: 100%;
     height: 50px;
@@ -114,7 +113,7 @@ body, html {
     background-color: #5BC2F2; 
 }
 
-/* --- Văn Bản Đăng Kí (Link) --- */
+/*  Văn Bản Đăng Kí (Link)  */
 .signup-text {
     font-size: 14px;
     color: #000;
@@ -165,10 +164,17 @@ body, html {
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
+.logo img {
+    height: 45px;    
+    width: auto;     
+    object-fit: contain; 
+    display: block;  
+}
+
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
 .nav-right-group {
@@ -202,6 +208,113 @@ body, html {
     object-fit: contain; 
 }
 
+.avatar-dropdown {
+    display: none; 
+    position: absolute;
+    top: 75px; 
+    right: 50px;
+    width: 220px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+    padding: 10px 0;
+    z-index: 1000;
+    border: 1px solid rgba(0,0,0,0.05);
+    animation: fadeIn 0.3s ease; 
+}
+
+/* Các mục bên trong menu */
+.avatar-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.avatar-dropdown ul li {
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+/* Hiệu ứng khi di chuột vào từng dòng */
+.avatar-dropdown ul li:hover {
+    background-color: #f5faff;
+    color: #5BC2F2;
+    padding-left: 25px; 
+}
+
+.avatar-dropdown ul li:last-child {
+    color: #ff5c5c;
+}
+
+.avatar-dropdown.active { display: block; } 
+
+/* Lớp nền mờ toàn màn hình */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Thẻ Modal chính */
+.modal-card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    width: 380px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: zoomIn 0.3s ease;
+}
+
+.modal-card p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Group nút bấm */
+.modal-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-btns button {
+    padding: 12px 30px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    flex: 1;
+}
+
+/* Nút Đồng ý */
+.btn-confirm {
+    background: #79D2FC;
+    color: white;
+}
+.btn-confirm:hover { background: #5BC2F2; }
+
+/* Nút Thoát/Hủy */
+.btn-cancel {
+    background: #FF7676;
+    color: white;
+}
+.btn-cancel:hover { background: #ff5c5c; }
+.modal-overlay.active { display: flex; }
+
 /* Thẻ Thông tin Số dư */
 .header-card {
     background-color: #FFF5F5; 
@@ -214,7 +327,26 @@ body, html {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.user-pic-circle { width: 60px; height: 60px; background: #333; border-radius: 50%; }
+/* Khung bao quanh ảnh đại diện */
+.user-avatar-container { 
+    width: 65px; 
+    height: 65px; 
+    border-radius: 50%; 
+    overflow: hidden; /* Cắt bỏ phần ảnh thừa ra ngoài vòng tròn */
+    border: 2px solid #fff; /* Tạo viền trắng cho sang trọng */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Định dạng hình ảnh bên trong */
+.user-avatar-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Quan trọng: Giữ tỉ lệ ảnh, không bị móp méo */
+    display: block;
+}
 .balance-info { display: flex; align-items: center; gap: 20px; }
 .balance-info p { color: #666; font-size: 14px; }
 .balance-info h2 { font-size: 32px; color: #000; }
@@ -296,3 +428,14 @@ body, html {
 .yellow-bg { background-color: #F9FFD1; }
 .green-bg { background-color: #E2FFD1; }
 .purple-bg { background-color: #F1D1FF; }
+
+/* THAY ĐỔI MK */
+.login-page .main-container, 
+.register-page .main-container,
+.change-password-page .main-container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: #E6F3F7;
+    overflow: hidden;
+}
