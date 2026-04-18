@@ -1,0 +1,135 @@
+/* ĐĂNG NHẬP */
+.bottom-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    z-index: 1;
+
+    background-image: url('../assets/image/bg-hills1.jpg');
+    background-size: 100% 100%; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Thẻ Đăng Nhập Chính (Login Card)  */
+.login-card {
+    background: rgba(255, 255, 255, 0.9); 
+    padding: 50px 40px;
+    border-radius: 20px;
+    width: 420px;
+    max-width: 90%; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+/*  Tiêu Đề Đăng Nhập  */
+.login-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+/*  Nhóm Input (Ô nhập liệu)  */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    color: #4A4A4A;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #C4DDEB; 
+    border-radius: 8px;
+    padding: 0 15px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #5BC2F2; 
+}
+
+/*  Nút Đăng Nhập  */
+.login-button {
+    width: 100%;
+    height: 50px;
+    background-color: #79D2FC;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.login-button:hover {
+    background-color: #5BC2F2; 
+}
+
+/* ĐĂNG KÍ */
+.signup-text {
+    font-size: 14px;
+    color: #000;
+}
+
+.signup-text a {
+    color: #5BC2F2;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+
+.input-row {
+    display: flex;
+    gap: 15px; 
+    justify-content: space-between;
+}
+
+.input-row .input-group {
+    flex: 1;
+}
+
+.login-card {
+    width: 500px; 
+    max-width: 95%;
+}
+
+/* THAY ĐỔI MK */
+.login-page .main-container, 
+.register-page .main-container,
+.change-password-page .main-container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: #E6F3F7;
+    overflow: hidden;
+}
