@@ -15,3 +15,15 @@ function showModal(id) {
 function hideModal(id) {
     document.getElementById(id).classList.remove('active');
 }
+
+//hàm thông báo 
+function toggleNotification() {
+    const menu = document.getElementById('notificationMenu');
+    menu.classList.toggle('active');
+}
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.icon') && !e.target.closest('#notificationMenu')) {
+        document.getElementById('notificationMenu')?.classList.remove('active');
+    }
+});

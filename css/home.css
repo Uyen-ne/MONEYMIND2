@@ -227,7 +227,12 @@
     font-size: 15px;
 }
 
-.stats-right { width: 320px; height: 320px; }
+.stats-right { 
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
 
 /* Thẻ Giao dịch gần đây */
 .recent-transactions { margin-top: 50px; margin-bottom: 50px; }
@@ -275,8 +280,58 @@
     padding: 10px 20px;
     border-radius: 10px;
     min-width: 150px;
-    text-align: right;
+    text-align: center;
     font-weight: 600;
+}
+
+/* Thẻ Dropdown Thông báo */
+.notification-dropdown {
+    display: none;
+    position: absolute;
+    top: 75px;
+    right: 100px;
+    width: 300px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 15px 20px;
+    z-index: 1000;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.notification-dropdown.active { display: block; }
+
+.notification-dropdown h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.notification-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-dropdown ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.notif-desc {
+    font-size: 13px;
+    color: #444;
+}
+
+.notif-date {
+    font-size: 12px;
+    color: #aaa;
 }
 
 .yellow-bg { background-color: #F9FFD1; }
