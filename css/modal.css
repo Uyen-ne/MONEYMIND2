@@ -1,0 +1,172 @@
+/* Lớp nền mờ toàn màn hình */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Thẻ Modal chính */
+.modal-card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    width: 380px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: zoomIn 0.3s ease;
+}
+
+.modal-card p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Group nút bấm */
+.modal-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-btns button {
+    padding: 12px 30px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    flex: 1;
+}
+
+/* Nút Đồng ý */
+.btn-confirm {
+    background: #79D2FC;
+    color: white;
+}
+.btn-confirm:hover { background: #5BC2F2; }
+
+/* Nút Thoát/Hủy */
+.btn-cancel {
+    background: #FF7676;
+    color: white;
+}
+.btn-cancel:hover { background: #ff5c5c; }
+.modal-overlay.active { display: flex; }
+
+.filter-container { position: relative; display: flex; gap: 10px; }
+
+.filter-popup {
+    display: none;
+    position: absolute;
+    top: 45px; left: 0;
+    width: 180px;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    z-index: 100;
+    border: 1px solid #eee;
+}
+.filter-popup.active { display: block; }
+
+.opt-btn {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    border: 1px solid #000;
+    font-size: 13px;
+    cursor: pointer;
+}
+.color-day { background-color: #FFF0F0; }
+.color-week { background-color: #F8D7D7; }
+.color-month { background-color: #FFB5B5; }
+
+/* --- FORMAT CHO FORM TRONG MODAL CHO PHẦN THÊM GIAO DỊCH --- */
+.form-card {
+    width: 450px; /* Bảng form cần rộng hơn bảng thông báo một chút */
+    padding: 30px 40px;
+}
+
+.form-title {
+    text-align: left;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* Các ô nhập liệu */
+.form-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #b0c4de;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Lưới các nút chọn (3 cột) */
+.grid-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.opt-select {
+    padding: 8px 5px;
+    border: 1px solid #A9A9F5; /* Viền xanh tím nhạt */
+    background: #fff;
+    border-radius: 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Hiệu ứng khi được chọn (Bấm vào) */
+.opt-select:hover, .opt-select.selected {
+    background: #E0E0F8;
+    font-weight: bold;
+}
+
+/* Nút 3 chấm màu hồng */
+.center-btn { text-align: center; }
+
+.btn-more-pink {
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    border: none;
+    background: #FFD1D1; /* Màu hồng phấn */
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Nút Hủy và Áp Dụng ở đáy form */
+.btn-form-cancel {
+    background: #D4E6F1; /* Xanh lơ */
+    color: #333;
+}
+
+.btn-form-apply {
+    background: #F1948A; /* Đỏ cam */
+    color: white;
+}

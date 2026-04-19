@@ -7,7 +7,15 @@
 }
 
 body, html {
-    height: 100%;
+    background-color: #e1f8ff; 
+    min-height: 100vh;        
+    margin: 0;                 
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.home-bg, .main-bg {
+    background: hsl(189, 100%, 96%);
+    min-height: 100vh;
 }
 
 /*  Vùng Chứa Chính (Main Container) */
@@ -77,3 +85,49 @@ body, html {
 }
 
 .avatar-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.avatar-dropdown {
+    display: none; 
+    position: absolute;
+    top: 75px; 
+    right: 50px;
+    width: 220px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+    padding: 10px 0;
+    z-index: 1000;
+    border: 1px solid rgba(0,0,0,0.05);
+    animation: fadeIn 0.3s ease; 
+}
+
+/* Các mục bên trong menu */
+.avatar-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.avatar-dropdown ul li {
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+/* Hiệu ứng khi di chuột vào từng dòng */
+.avatar-dropdown ul li:hover {
+    background-color: #f5faff;
+    color: #5BC2F2;
+    padding-left: 25px; 
+}
+
+.avatar-dropdown ul li:last-child {
+    color: #ff5c5c;
+}
+
+.avatar-dropdown.active { display: block; } 
+
