@@ -11,6 +11,20 @@ function injectGlobalUI() {
             </ul>
         </div>
 
+        <div class ="notification-dropdown" id="notificationMenu" style="display: none;">
+            <h4>Lịch sử giao dịch</h4>
+            <ul id="notificationList">
+                <li>
+                    <span class="notif-desc">HUYNHNGOCNHAUYEN chuyển khoản 500.000đ</span>
+                    <span class="notif-date">20/3/2026</span>
+                </li>
+                <li>
+                    <span class="notif-desc">Thanh toán chi phí cố định 1.000.000đ</span>
+                    <span class="notif-date">18/3/2026</span>
+                </li>
+            </ul>
+        </div>
+
         <div class="modal-overlay" id="logoutModal" style="display: none;">
             <div class="modal-card">
                 <p>Bạn có chắc chắn muốn đăng xuất?</p>
@@ -42,12 +56,29 @@ function injectGlobalUI() {
         avatarBtn.onclick = function(e) {
             e.stopPropagation(); // Ngăn việc click bị trôi
             menu.style.display = (menu.style.display === 'none') ? 'block' : 'none';
+            //đóng noti nếu đang mở
+            notifMenu.style.display = 'none';
         };
     }
 
-    // Click ra ngoài thì đóng menu
+    //kết nối chuông thông báo
+    const bellBtn = document.querySelector('.icon[alt="Notification"]');
+    const notifMenu = document.getElementById('notificationMenu');
+    // Mở menu thông báo khi click vào chuông
+    if (bellBtn && notifMenu) {
+        bellBtn.style.cursor = 'pointer';
+        bellBtn.onclick = function(e) {
+            e.stopPropagation();
+            notifMenu.style.display = (notifMenu.style.display === 'none') ? 'block' : 'none';
+            //đóng avatar nếu đang mở
+            if (menu) menu.style.display = 'none';
+        };
+    }
+
+    // Click ra ngoài thì đóng cả 2 menu
     window.onclick = function() {
         if (menu) menu.style.display = 'none';
+        if (notifMenu) notifMenu.style.display = 'none';
     };
 }
 
