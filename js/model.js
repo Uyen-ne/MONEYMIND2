@@ -13,3 +13,9 @@ function closeModal(modalId) {
         modal.classList.remove('active');
     }
 }
+
+window.addEventListener('click', function(event) {
+    if (event.target.classList.contains('modal-overlay')) {
+        event.target.classList.remove('active');
+    }
+});

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mục Tiêu - MoneyMind</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/goal.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/modal.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+   <nav class="navbar">
+    <div class="logo">
+    <a href="home.html" style="text-decoration: none; display: flex; align-items: center; color: inherit;">
+        <img src="../assets/icon/logo.png" alt="MoneyMind">
+        <span>MoneyMind</span>
+    </a>
+    </div>
+
+    <div class="nav-right-group">
+        <ul class="nav-links">
+                <li><a href="category.html">Danh mục</a></li>
+                <li><a href="transaction.html">Giao dịch</a></li>
+                <li><a href="goal.html" class="active-link">Mục tiêu</a></li> 
+        </ul>
+        
+        <div class="nav-icons">
+            <img src="../assets/icon/bell.png" alt="Notification" class="icon">
+            <img src="../assets/icon/avatar.png" alt="User" class="avatar-img">
+        </div>
+    </div>
+    </nav>
+
+<main class="goal-container">
+    <h1 class="page-title">MỤC TIÊU CHI TIÊU</h1>
+
+    <div class="top-actions">
+        <button class="btn-pill-gray" onclick="showModal('addGoalModal')">Đặt mục tiêu</button>
+    </div>
+
+    <section class="goal-section">
+        <h2 class="section-heading">TIẾN ĐỘ CÁC MỤC</h2>
+
+        <div class="progress-block">
+            <p class="category-label">Ăn uống</p>
+            <div class="progress-track">
+                <div class="progress-fill fill-red" style="width: 50%;">
+                    <span>đã xài: 500.000 vnđ</span>
+                </div>
+                <div class="progress-remainder">
+                    <span>còn: 500.000 vnđ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-block">
+            <p class="category-label">Đi lại</p>
+            <div class="progress-track">
+                <div class="progress-fill fill-blue" style="width: 35%;">
+                    <span>đã xài: 500.000 vnđ</span>
+                </div>
+                <div class="progress-remainder">
+                    <span>còn: 1.500.000 vnđ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-block">
+            <p class="category-label">Mua đồ linh tinh</p>
+            <div class="progress-track">
+                <div class="progress-fill fill-green" style="width: 50%;">
+                    <span>đã xài: 2.000.000 vnđ</span>
+                </div>
+                <div class="progress-remainder">
+                    <span>còn: 50.000 vnđ</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="expand-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+    </section>
+
+    <section class="goal-section">
+        <h2 class="section-heading">MỤC TIÊU HIỆN TẠI THÁNG NÀY</h2>
+
+        <div class="goal-setting-block">
+            <p class="category-label">Ăn uống</p>
+            <div class="goal-row">
+                <div class="goal-input-bg">
+                    <span class="prefix">Tối đa:</span>
+                    <div class="amount-pill">6.000.000 VND</div>
+                </div>
+                <div class="goal-actions">
+                    <button class="icon-btn edit-btn">✎</button>
+                    <button class="icon-btn delete-btn">🗑</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="goal-setting-block">
+            <p class="category-label">Đi lại</p>
+            <div class="goal-row">
+                <div class="goal-input-bg">
+                    <span class="prefix">Tối đa:</span>
+                    <div class="amount-pill">6.000.000 VND</div>
+                </div>
+                <div class="goal-actions">
+                    <button class="icon-btn edit-btn">✎</button>
+                    <button class="icon-btn delete-btn">🗑</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="goal-setting-block">
+            <p class="category-label">Mua đồ linh tinh</p>
+            <div class="goal-row">
+                <div class="goal-input-bg">
+                    <span class="prefix">Tối đa:</span>
+                    <div class="amount-pill">6.000.000 VND</div>
+                </div>
+                <div class="goal-actions">
+                    <button class="icon-btn edit-btn">✎</button>
+                    <button class="icon-btn delete-btn">🗑</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="addGoalModal">
+    <div class="modal-card form-card">
+        <h2 class="form-title">Đặt mục tiêu mới</h2>
+
+        <div class="form-group">
+            <label for="goal-name">Tên mục tiêu</label>
+            <input type="text" id="goal-name" class="form-input" placeholder="VD: Ăn uống, Giải trí..." />
+        </div>
+
+        <div class="form-group">
+            <label for="goal-limit">Hạn mức tối đa</label>
+            <input type="text" id="goal-limit" class="form-input" placeholder="Nhập số tiền (VND)" />
+        </div>
+
+        <div class="modal-btns">
+            <button class="btn-form-cancel" onclick="closeModal('addGoalModal')">HỦY</button>
+            <button class="btn-form-apply">LƯU</button>
+        </div>
+    </div>
+    </div>
+
+</main>
+
+  <script src="../js/global-menu.js"></script>
+   <script src="../js/model.js"></script> 
+
+</body>
+</html>

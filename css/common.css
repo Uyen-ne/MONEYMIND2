@@ -52,17 +52,20 @@ body, html {
     gap: 40px; /* Khoảng cách giữa các chữ */
 }
 
+/* Thêm class này vào common.css */
 .nav-links a {
     text-decoration: none;
-    color: #333;
-    font-size: 14px;
-    font-weight: 500;
-    transition: 0.3s;
+    color: #333; /* Màu đen mặc định cho tất cả các chữ */
+    transition: 0.2s;
 }
 
-/* Hiệu ứng khi chọn hoặc di chuột vào */
-.nav-links a:hover, .nav-links a.active {
-    color: #79D2FC; /* Màu xanh thương hiệu của bạn */
+.nav-links a:hover {
+    color: #00A3FF; /* Rê chuột vào thì đổi màu xanh */
+}
+
+/* Class dùng để đánh dấu trang đang đứng */
+.nav-links a.active-link {
+    color: #00A3FF; 
     font-weight: 700;
 }
 

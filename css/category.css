@@ -1,0 +1,146 @@
+/* --- BỐ CỤC CHUNG TRANG DANH MỤC --- */
+.category-container {
+    max-width: 900px; /* TĂNG độ rộng từ 650px lên 900px cho giống Web */
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    color: #000;
+}
+
+/* Tiêu đề nằm lồi ra ngoài */
+.page-title {
+    font-size: 26px; /* Chữ to hơn chút */
+    font-weight: 800;
+    margin-bottom: 30px;
+    margin-left: 0; /* Giữ sát lề trái */
+}
+
+/* Đẩy dàn nút và các danh sách thụt vào trong 30px */
+.top-actions, .category-section {
+    padding-left: 30px; 
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.btn-pill-gray {
+    padding: 8px 30px;
+    border-radius: 20px;
+    border: none;
+    background: #E0E0E0;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.category-section {
+    margin-bottom: 50px;
+}
+
+.section-heading {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+/* Chỉnh lại vòng tròn Icon cho đẹp, nền trắng để chứa ảnh */
+.cat-icon {
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    border: 1px solid #333; 
+    background: #ffffff; /* Nền trắng đục để làm nổi hình ảnh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Tự động căn chỉnh hình ảnh vừa vặn với vòng tròn */
+.cat-icon img {
+    width: 60%; 
+    height: 60%;
+    object-fit: contain;
+}
+.section-heading {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   THẺ DANH MỤC (CATEGORY CARDS)
+   ========================================= */
+.category-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    transition: transform 0.2s;
+}
+
+.category-card:hover {
+    transform: translateY(-2px); /* Hiệu ứng nảy nhẹ khi di chuột */
+}
+
+/* Cụm Icon và Tên danh mục bên trái */
+.cat-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cat-name {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Cụm Nút Sửa/Xóa bên phải */
+.cat-right {
+    display: flex;
+    gap: 10px;
+}
+
+.action-icon-btn {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7); /* Nền trắng hơi trong suốt */
+    border: 1px solid #ddd;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.action-icon-btn:hover {
+    background-color: #fff;
+    border-color: #333;
+    color: #000;
+}
+
+.icon-box img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+/* =========================================
+   BẢNG MÀU NỀN CÁC THẺ (Chuẩn màu Figma)
+   ========================================= */
+.bg-pink { background-color: #F8D7D7; }         /* Tiền lương */
+.bg-light-green { background-color: #D6F5D6; }  /* Tiền đầu tư */
+.bg-yellow { background-color: #FFF2CC; }       /* Tiền lãi ngân hàng */
+.bg-mint { background-color: #D1F2EB; }         /* Tiền ăn uống */
+.bg-blue { background-color: #D6EAF8; }         /* Tiền điện nước */
+.bg-light-pink { background-color: #F5DDEB; }   /* Tiền mua sắm */

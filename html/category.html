@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Mục - MoneyMind</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/category.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/modal.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+   <nav class="navbar">
+    <div class="logo">
+        <img src="../assets/icon/logo.png" alt="MoneyMind">
+        <span>MoneyMind</span>
+    </div>
+
+    <div class="nav-right-group">
+        <ul class="nav-links">
+            <li><a href="category.html" class="active-link">Danh mục</a></li> 
+            <li><a href="transaction.html">Giao dịch</a></li>
+            <li><a href="goal.html">Mục tiêu</a></li>
+        </ul>
+        
+        <div class="nav-icons">
+            <img src="../assets/icon/bell.png" alt="Notification" class="icon">
+            <img src="../assets/icon/avatar.png" alt="User" class="avatar-img">
+        </div>
+    </div>
+    </nav>
+
+<main class="category-container">
+    <h1 class="page-title">QUẢN LÝ DANH MỤC</h1>
+
+    <div class="top-actions">
+        <button class="btn-pill-gray" onclick="showModal('addCategoryModal')">THÊM DANH MỤC</button>
+    </div>
+
+    <section class="category-section">
+        <h2 class="section-heading">TIỀN VÀO</h2>
+
+        <div class="category-card bg-pink">
+            <div class="cat-left">
+                <div class="cat-icon">
+                    <img src="../assets/icon/salary.png" alt="Icon" onerror="this.style.display='none'"> 
+                    </div>
+                <span class="cat-name">Tiền lương</span>
+            </div>
+            <div class="cat-right">
+                <button class="action-icon-btn">✎</button>
+                <button class="action-icon-btn">🗑</button>
+            </div>
+        </div>
+
+        <div class="category-card bg-light-green">
+            <div class="cat-left">
+                <div class="cat-icon"><img src="../assets/icon/invest.png" alt="Icon" onerror="this.style.display='none'"></div>
+                <span class="cat-name">Tiền đầu tư</span>
+            </div>
+            <div class="cat-right">
+                <button class="action-icon-btn">✎</button>
+                <button class="action-icon-btn">🗑</button>
+            </div>
+        </div>
+
+        <div class="category-card bg-yellow">
+            <div class="cat-left">
+                <div class="cat-icon"><img src="../assets/icon/bank.png" alt="Icon" onerror="this.style.display='none'"></div>
+                <span class="cat-name">Tiền lãi ngân hàng</span>
+            </div>
+            <div class="cat-right">
+                <button class="action-icon-btn">✎</button>
+                <button class="action-icon-btn">🗑</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-section">
+        <h2 class="section-heading">TIỀN RA</h2>
+
+        <div class="category-card bg-mint">
+            <div class="cat-left">
+                <div class="cat-icon"><img src="../assets/icon/food.png" alt="Icon" onerror="this.style.display='none'"></div>
+                <span class="cat-name">Tiền ăn uống</span>
+            </div>
+            <div class="cat-right">
+                <button class="action-icon-btn">✎</button>
+                <button class="action-icon-btn">🗑</button>
+            </div>
+        </div>
+
+        <div class="category-card bg-blue">
+            <div class="cat-left">
+                <div class="cat-icon"><img src="../assets/icon/water.png" alt="Icon" onerror="this.style.display='none'"></div>
+                <span class="cat-name">Tiền điện nước</span>
+            </div>
+            <div class="cat-right">
+                <button class="action-icon-btn">✎</button>
+                <button class="action-icon-btn">🗑</button>
+            </div>
+        </div>
+
+        <div class="category-card bg-light-pink">
+            <div class="cat-left">
+                <div class="cat-icon"><img src="../assets/icon/shopping.png" alt="Icon" onerror="this.style.display='none'"></div>
+                <span class="cat-name">Tiền mua sắm</span>
+            </div>
+            <div class="cat-right">
+                <button class="action-icon-btn">✎</button>
+                <button class="action-icon-btn">🗑</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal-overlay" id="addCategoryModal">
+    <div class="modal-card form-card">
+        <div class="form-group">
+            <label style="text-transform: uppercase;">Tên danh mục</label>
+            <input type="text" class="form-input" placeholder="Nhập tên danh mục" />
+        </div>
+
+        <div class="form-group">
+            <label style="text-transform: uppercase;">Phân loại</label>
+           <div class="icon-selector-row">
+              <button class="icon-box">
+                 <img src="../assets/icon/food.png" alt="Ăn uống" onerror="this.style.display='none'">
+              </button>
+    
+             <button class="icon-box">
+                  <img src="../assets/icon/home.png" alt="Nhà cửa" onerror="this.style.display='none'">
+            </button>
+    
+            <button class="icon-box">
+                 <img src="../assets/icon/water.png" alt="Điện nước" onerror="this.style.display='none'">
+            </button>
+    
+            <button class="icon-box">
+                <img src="../assets/icon/shopping.png" alt="Mua sắm" onerror="this.style.display='none'">
+            </button>
+    
+            <button class="icon-box">
+                <img src="../assets/icon/beauty.png" alt="Làm đẹp" onerror="this.style.display='none'">
+            </button>
+    
+            <button class="icon-box">...</button>
+</div>
+        </div>
+
+        <div class="form-group">
+            <label style="text-transform: uppercase;">Nguồn tiền</label>
+            <div class="source-selector-row">
+                <button class="source-btn source-in">TIỀN VÀO</button>
+                <button class="source-btn source-out">TIỀN RA</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label style="text-transform: uppercase;">Màu sắc</label>
+            <div class="color-selector-row">
+                <div class="color-circle" style="background-color: #FFD6D6;"></div>
+                <div class="color-circle" style="background-color: #FEF7CC;"></div>
+                <div class="color-circle" style="background-color: #DDF7D3;"></div>
+                <div class="color-circle" style="background-color: #D5FAFA;"></div>
+                <div class="color-circle" style="background-color: #DFD3FB;"></div>
+                <div class="color-circle" style="background-color: #FBD3E9;"></div>
+            </div>
+        </div>
+
+        <div class="modal-btns mt-30">
+            <button class="btn-form-cancel" onclick="closeModal('addCategoryModal')">HỦY</button>
+            <button class="btn-form-apply">LƯU</button>
+        </div>
+    </div>
+</div>
+
+</main>
+
+  <script src="../js/global-menu.js"></script>
+   <script src="../js/model.js"></script> 
+
+</body>
+</html>

@@ -170,3 +170,77 @@
     background: #F1948A; /* Đỏ cam */
     color: white;
 }
+
+/* =========================================
+   CSS RIÊNG CHO FORM "THÊM DANH MỤC"
+   ========================================= */
+
+/* Hàng chọn Icon hình vuông */
+.icon-selector-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.icon-box {
+    width: 45px; height: 45px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    background: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.icon-box:hover {
+    background: #f0f0f0;
+    transform: scale(1.05); /* Phóng to nhẹ khi rê chuột */
+}
+
+/* Hàng chọn Nguồn tiền (Viên thuốc) */
+.source-selector-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.source-btn {
+    padding: 10px 30px;
+    border-radius: 25px;
+    border: 1px solid #333;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.source-in { background-color: #DDF7D3; } /* Màu xanh nhạt */
+.source-out { background-color: #DFD3FB; } /* Màu tím nhạt */
+
+.source-btn:hover { filter: brightness(0.95); }
+
+/* Hàng chọn Màu sắc (Hình tròn) */
+.color-selector-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.color-circle {
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.color-circle:hover {
+    transform: scale(1.15); /* Nảy lên khi chọn màu */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.mt-30 { margin-top: 30px; }
+
