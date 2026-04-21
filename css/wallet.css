@@ -316,16 +316,11 @@ body {
     background: #F5E6FF;
 }
 
-.provider-fallback {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    font-weight: 700;
-    flex-shrink: 0;
+.bank-logo {
+    width: 40px; /* Bạn có thể tăng giảm con số này tùy ý sao cho vừa mắt */
+    height: 40px;
+    object-fit: contain; /* Giúp ảnh giữ đúng tỷ lệ, không bị bóp méo */
+    margin-right: 12px; /* Tạo khoảng cách một chút với phần chữ tên ngân hàng */
 }
 
 .wallet-form-group {
