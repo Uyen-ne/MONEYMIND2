@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ví của tôi - MoneyMind</title>
+    
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/wallet.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+    <div class="logo">
+        <img src="../assets/icon/logo.png" alt="MoneyMind">
+        <span>MoneyMind</span>
+    </div>
+
+    <div class="nav-right-group">
+        <ul class="nav-links">
+            <li><a href="#">Danh mục</a></li>
+            <li><a href="#">Giao dịch</a></li>
+            <li><a href="#">Mục tiêu</a></li>
+        </ul>
+        
+        <div class="nav-icons">
+            <img src="../assets/icon/bell.png" alt="Notification" class="icon">
+            <img src="../assets/icon/avatar.png" alt="User" class="avatar-img">
+        </div>  
+    </div>
+    </nav>
+
+    <main class="wallet-container">
+    <h1>VÍ CỦA TÔI</h1>
+
+    <div class="container">
+        <header class="header-card">
+            <div class="balance-info">
+                <div class="user-avatar-container">
+                     <img src="../assets/icon/avatar.png" alt="Avatar" class="user-avatar-img">
+                 </div>
+             <div>
+        <p>Số dư hiện tại</p>
+        <h2>200.000.000 đ</h2>
+    </div>
+</div>
+            <div class="alert-info">
+                <p>Chi tiêu tháng 4 này đã <span class="highlight">tăng 50%</span> so với tháng 3 trước!</p>
+            </div>
+        </header>
+
+        <section class="wallet-section">
+            <div class="section-header">
+                <h2>Ví hiện tại</h2>
+                <button class="edit-icon-btn"><i class="fa-regular fa-pen-to-square"></i></button>
+            </div>
+            <div class="wallet-item">
+                <div class="wallet-title">
+                    <img src="../assets/icon/money-flow.png" alt="Tiền mặt" class="wallet-logo">
+                    <span>Tiền mặt</span>
+                </div>
+                <div class="wallet-card">
+                    <div class="wallet-details">
+                        <p class="detail-row">Số dư: <span class="amount-text">100.000 vnđ</span></p>
+                    </div>
+                    <button class="delete-btn">
+                        <div class="icon-white-circle"><i class="fa-regular fa-trash-can"></i></div>
+                        <span>Xóa</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="wallet-item">
+                <div class="wallet-title">
+                    <span>Ngân hàng</span>
+                    <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+                    <img src="../assets/icon/logo-bidv.png" alt="BIDV" class="wallet-logo">
+                    <span>BIDV</span>
+                </div>
+                <div class="wallet-card">
+                    <div class="wallet-details">
+                        <p class="detail-row">Số tài khoản: <span>01234567893342</span></p>
+                        <p class="detail-row">Số dư: <span class="amount-text">100.000 vnđ</span></p>
+                    </div>
+                    <button class="delete-btn">
+                        <div class="icon-white-circle"><i class="fa-regular fa-trash-can"></i></div>
+                        <span>Xóa</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="wallet-item">
+                <div class="wallet-title">
+                    <span>Ví điện tử</span>
+                    <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+                    <img src="../assets/icon/logo-momo.png" alt="MOMO" class="wallet-logo">
+                    <span>MOMO</span>
+                </div>
+                <div class="wallet-card">
+                    <div class="wallet-details">
+                        <p class="detail-row">Số tài khoản: <span>3904230873</span></p>
+                        <p class="detail-row">Số dư: <span class="amount-text">100.000 vnđ</span></p>
+                    </div>
+                    <button class="delete-btn">
+                        <div class="icon-white-circle"><i class="fa-regular fa-trash-can"></i></div>
+                        <span>Xóa</span>
+                    </button>
+                </div>
+            </div>
+                        <!-- MODAL THÊM VÍ -->
+            <div class="modal-overlay" id="addWalletModal" style="display:none;">
+                <div class="wallet-modal-card">
+                    
+                    <!-- Bước 1: Chọn loại ví -->
+                    <div id="step1">
+                        <h3 class="wallet-modal-title">Thêm ví mới</h3>
+                        <p class="wallet-modal-sub">Chọn loại ví bạn muốn thêm</p>
+                        <div class="wallet-type-list">
+                            <button class="wallet-type-btn" onclick="selectWalletType('cash')">
+                                <span class="wallet-type-icon cash-icon">💵</span>
+                                <span>Tiền mặt</span>
+                            </button>
+                            <button class="wallet-type-btn" onclick="selectWalletType('bank')">
+                                <span class="wallet-type-icon bank-icon">🏦</span>
+                                <span>Ngân hàng</span>
+                            </button>
+                            <button class="wallet-type-btn" onclick="selectWalletType('ewallet')">
+                                <span class="wallet-type-icon ew-icon">📱</span>
+                                <span>Ví điện tử</span>
+                            </button>
+                        </div>
+                        <button class="wallet-cancel-btn" onclick="hideModal('addWalletModal')">Hủy</button>
+                    </div>
+
+                    <!-- Bước 2a: Tiền mặt -->
+                    <div id="step-cash" style="display:none;">
+                        <button class="wallet-back-btn" onclick="backToStep1()">← Quay lại</button>
+                        <h3 class="wallet-modal-title">Tiền mặt</h3>
+                        <div class="wallet-form-group">
+                            <label>Số dư ban đầu</label>
+                            <input type="number" class="wallet-input" placeholder="Nhập số tiền (VNĐ)">
+                        </div>
+                        <button class="wallet-confirm-btn" onclick="hideModal('addWalletModal')">Xác nhận</button>
+                    </div>
+
+                    <!-- Bước 2b: Ngân hàng -->
+                    <div id="step-bank" style="display:none;">
+                        <button class="wallet-back-btn" onclick="backToStep1()">← Quay lại</button>
+                        <h3 class="wallet-modal-title">Chọn ngân hàng</h3>
+                        <div class="provider-list">
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://api.vietqr.io/img/VCB.png" alt="VCB" class="bank-logo">
+                                Vietcombank
+                            </button>
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://api.vietqr.io/img/BIDV.png" alt="BIDV" class="bank-logo">
+                                BIDV
+                            </button>
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://api.vietqr.io/img/TCB.png" alt="TCB" class="bank-logo">
+                                Techcombank
+                            </button>
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://api.vietqr.io/img/ACB.png" alt="ACB" class="bank-logo">
+                                ACB
+                            </button>
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://api.vietqr.io/img/MB.png" alt="MB" class="bank-logo">
+                                MB Bank
+                            </button>
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://api.vietqr.io/img/VPB.png" alt="VPB" class="bank-logo">
+                                VPBank
+                            </button>
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://api.vietqr.io/img/TPB.png" alt="TPB" class="bank-logo">
+                                TPBank
+                            </button>
+                        </div>
+                        <div class="wallet-form-group" style="margin-top:16px;">
+                            <label>Số tài khoản</label>
+                            <input type="text" class="wallet-input" placeholder="Nhập số tài khoản">
+                        </div>
+                        <div class="wallet-form-group">
+                            <label>Số dư ban đầu</label>
+                            <input type="number" class="wallet-input" placeholder="Nhập số tiền (VNĐ)">
+                        </div>
+                        <button class="wallet-confirm-btn" onclick="hideModal('addWalletModal')">Xác nhận</button>
+                    </div>
+
+                    <!-- Bước 2c: Ví điện tử -->
+                    <div id="step-ewallet" style="display:none;">
+                        <button class="wallet-back-btn" onclick="backToStep1()">← Quay lại</button>
+                        <h3 class="wallet-modal-title">Chọn ví điện tử</h3>
+                        <div class="provider-list">
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://developers.momo.vn/v3/assets/images/MOMO-Logo-App-6262c3743a290ef02396a24ea2b66c35.png" alt="MoMo" class="bank-logo">
+                                MoMo
+                            </button>
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ZaloPay-Square.png" alt="ZaloPay" class="bank-logo">
+                                ZaloPay
+                            </button>
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-VNPAY-QR-1.png" alt="VNPay" class="bank-logo">
+                                VNPay
+                            </button>
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ShopeePay-V.png" alt="ShopeePay" class="bank-logo">
+                                ShopeePay
+                            </button>
+                            <button class="provider-btn" onclick="selectProvider(this)">
+                                <img src="https://viettelmoney.square.site/uploads/b/5cae7860-dfd4-11ec-b69e-8d1e1ba92ad3/viettelmoney-logo.jpg" alt="ShopeePay" class="bank-logo">
+                                Viettel Money
+                            </button>
+                        </div>
+                        <div class="wallet-form-group" style="margin-top:16px;">
+                            <label>Số tài khoản / SĐT</label>
+                            <input type="text" class="wallet-input" placeholder="Nhập số điện thoại liên kết">
+                        </div>
+                        <div class="wallet-form-group">
+                            <label>Số dư ban đầu</label>
+                            <input type="number" class="wallet-input" placeholder="Nhập số tiền (VNĐ)">
+                        </div>
+                        <button class="wallet-confirm-btn" onclick="hideModal('addWalletModal')">Xác nhận</button>
+                    </div>
+
+                </div>
+            </div>
+
+           <button class="add-wallet-btn" onclick="showModal('addWalletModal')">+ Thêm ví</button> 
+        </section>
+    </main>
+
+    <script src="../js/global-menu.js"></script>
+    <script src="../js/wallet.js"></script>
+</body>
+</html>

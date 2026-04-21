@@ -1,0 +1,375 @@
+/* Khởi tạo cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Giả lập màu nền gradient nhẹ theo ảnh */
+    background-color: #e4f6fb;
+    color: #111;
+    min-height: 100vh;
+}
+
+.wallet-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+/* Banner tổng quan */
+.summary-banner {
+    background-color: #f7ede6; /* Màu be hồng nhạt */
+    /* Bạn có thể thêm background-image url() ở đây cho họa tiết hoa lá */
+    background-image: radial-gradient(#eccdc0 1px, transparent 1px);
+    background-size: 30px 30px;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.balance-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 300px;
+}
+
+.icon-black-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #111;
+    border-radius: 50%;
+}
+
+.balance-label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.balance-amount {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.spending-alert {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.text-red {
+    color: #d32f2f;
+    font-weight: 700;
+}
+
+/* Phần danh sách ví */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.edit-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Từng item ví */
+.wallet-item {
+    margin-bottom: 24px;
+}
+
+.wallet-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    margin-left: 10px;
+}
+
+.icon-gray-circle {
+    width: 24px;
+    height: 24px;
+    background-color: #d1d5db;
+    border-radius: 50%;
+}
+
+.arrow-icon {
+    color: #555;
+    margin: 0 5px;
+}
+
+.wallet-card {
+    background-color: #dadce0; /* Màu xám đặc trưng của card */
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-row {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.amount-text {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+/* Các nút bấm (Xóa, Thêm) */
+.delete-btn, .add-wallet-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.add-wallet-btn {
+    background-color: #dadce0;
+    padding: 8px 20px 8px 8px;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+.icon-white-circle {
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+}
+
+.delete-btn:hover .icon-white-circle, 
+.add-wallet-btn:hover {
+    opacity: 0.8;
+}
+
+.wallet-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain; /* Giúp logo không bị méo tỉ lệ */
+    border-radius: 50%;  /* Bo tròn logo nếu bạn muốn nó là hình tròn */
+    background-color: #fff; /* Tùy chọn: lót nền trắng phòng trường hợp logo bị trong suốt */
+}
+
+/* Modal Thêm Ví */
+.wallet-modal-card {
+    background: #FFF9F9;
+    padding: 32px;
+    border-radius: 24px;
+    width: 420px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    animation: zoomIn 0.25s ease;
+}
+
+.wallet-modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.wallet-modal-sub {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 24px;
+}
+
+.wallet-type-list {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.wallet-type-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 10px;
+    border-radius: 16px;
+    border: 2px solid #F0E6FF;
+    background: #FDF5FF;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    transition: 0.2s;
+}
+
+.wallet-type-btn:hover {
+    border-color: #C9A0F5;
+    background: #F5E6FF;
+    transform: translateY(-2px);
+}
+
+.wallet-type-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.cash-icon  { background: #FFFACD; }
+.bank-icon  { background: #D1E8FF; }
+.ew-icon    { background: #FFD1F0; }
+
+.wallet-cancel-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #E0E0E0;
+    background: white;
+    color: #888;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.wallet-cancel-btn:hover { background: #f5f5f5; }
+
+.wallet-back-btn {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 12px;
+}
+
+.wallet-back-btn:hover { color: #555; }
+
+.provider-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.provider-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 2px solid #EEE;
+    background: white;
+    font-size: 13px;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.provider-btn:hover {
+    border-color: #C9A0F5;
+    background: #FDF5FF;
+}
+
+.provider-btn.selected {
+    border-color: #A855F7;
+    background: #F5E6FF;
+}
+
+.provider-fallback {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.wallet-form-group {
+    margin-bottom: 14px;
+}
+
+.wallet-form-group label {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.wallet-input {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px solid #E8E8E8;
+    background: #FAFAFA;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.2s;
+}
+
+.wallet-input:focus {
+    border-color: #C9A0F5;
+    background: white;
+}
+
+.wallet-confirm-btn {
+    width: 100%;
+    padding: 13px;
+    border-radius: 12px;
+    border: none;
+    background: #C9A0F5;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: 0.2s;
+}
+
+.wallet-confirm-btn:hover { background: #b57ef0; }
