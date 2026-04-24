@@ -244,3 +244,20 @@
 
 .mt-30 { margin-top: 30px; }
 
+/* --- TRẠNG THÁI KHI NÚT ĐƯỢC CHỌN --- */
+
+/* 1. Dành cho các nút chữ và icon bình thường */
+.opt-select.selected, 
+.icon-box.selected, 
+.source-btn.selected {
+    background-color: #F5E6FF !important; /* Màu nền tím nhạt giống MB Bank */
+    border: 1.5px solid #000 !important;   /* Viền đen đậm lên */
+    font-weight: bold;
+    transform: scale(1.05); /* Nảy lên một xíu cho rõ */
+}
+
+/* 2. Dành riêng cho các hình tròn màu sắc (Vì nó có màu nền sẵn rồi nên ta chỉ đổi viền) */
+.color-circle.selected {
+    border: 3px solid #333 !important;
+    transform: scale(1.15);
+}

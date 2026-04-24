@@ -3,7 +3,7 @@ function injectGlobalUI() {
     uiContainer.innerHTML = `
         <div class="avatar-dropdown" id="avatarMenu" style="display: none;">
             <ul>
-                <li onclick="window.location.href='home.html'">Ví của tôi</li>
+                <li onclick="window.location.href='wallet.html'">Ví của tôi</li>
                 <li>Xuất file</li>
                 <li onclick="window.location.href='change-password.html'">Thay đổi mật khẩu</li>
                 <li onclick="showModal('logoutModal')">Đăng xuất</li>
