@@ -48,7 +48,6 @@ function injectGlobalUI() {
     document.body.appendChild(uiContainer);
 
     // KẾT NỐI SỰ KIỆN CLICK CHO AVATAR
-    // Hãy đảm bảo trong HTML của bạn, nút avatar có id="avatarBtn" hoặc class="avatar-img"
     const avatarBtn = document.getElementById('avatarBtn') || document.querySelector('.avatar-img');
     const menu = document.getElementById('avatarMenu');
 
