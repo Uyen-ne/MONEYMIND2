@@ -42,3 +42,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 });
+
+// TÍNH NĂNG: HIỆN THÔNG BÁO XÁC NHẬN KHI BẤM NÚT XÓA
+document.addEventListener('click', function(event) {
+    const nutBam = event.target.closest('button');
+    if (!nutBam) return; 
+
+    if (nutBam.classList.contains('delete-btn') || nutBam.textContent.includes('🗑')) {
+        
+        const dongY = confirm("Bạn có chắc chắn muốn xóa mục này khỏi danh sách?");
+
+        if (dongY) {
+            const theBaoQuanh = nutBam.closest('.category-card, .goal-setting-block, .transaction-card');
+            
+            if (theBaoQuanh) {
+                theBaoQuanh.style.transition = "0.3s";
+                theBaoQuanh.style.opacity = "0";
+                
+                setTimeout(() => {
+                    theBaoQuanh.remove(); 
+                }, 300);
+            }
+        }
+    }
+});
