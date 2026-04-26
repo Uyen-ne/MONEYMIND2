@@ -91,11 +91,8 @@
         }
 
         if (!hopLe) {
-                event.preventDefault(); 
-            } else {
-                event.preventDefault(); 
-                window.location.href = "login.html"; 
-            }
+            event.preventDefault(); // Chặn form nếu có lỗi
+        }
     });
 </script>
 
