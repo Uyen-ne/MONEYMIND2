@@ -27,9 +27,10 @@ body {
 
 /* Banner tổng quan */
 .summary-banner {
-    background-color: #f7ede6; /* Màu be hồng nhạt */
-    /* Bạn có thể thêm background-image url() ở đây cho họa tiết hoa lá */
-    background-image: radial-gradient(#eccdc0 1px, transparent 1px);
+     background-image: url('../assets/image/bg-flower3.png'); 
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat; 
     background-size: 30px 30px;
     border-radius: 12px;
     padding: 20px;

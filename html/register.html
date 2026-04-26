@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="input-group">
-                        <label for="username">EMAIL/SỐ ĐIỆN THOẠI</label>
+                        <label for="username">EMAIL</label>
                         <input type="text" id="username" name="username" required>
                         <p id="emailError" style="color: red; display: none; font-size: 12px; margin-top: 5px; font-weight: 500;">* Email sai định dạng</p>
                     </div>
@@ -37,13 +37,21 @@
                     <div class="input-row">
                         <div class="input-group">
                             <label for="password">MẬT KHẨU</label>
-                            <input type="password" id="password" name="password" required>
+                            <div style="position:relative;">
+                                <input type="password" id="password" name="password" required style="padding-right:40px;">
+                                <span onclick="togglePassword('password', this)" 
+                                    style="position:absolute; right:12px; top:50%; transform:translateY(-50%); cursor:pointer; font-size:18px; color:#aaa;">👁</span>
+                            </div>
                             <p id="passError" style="color: red; display: none; font-size: 12px; margin-top: 5px; font-weight: 500;">* Mật khẩu phải từ 8 ký tự, có 1 chữ IN HOA và 1 số</p>
                         </div>
                         <div class="input-group">
                             <label for="re-password">NHẬP LẠI MẬT KHẨU</label>
-                            <input type="password" id="re-password" name="re-password" required>
-                            <p id="rePassError" style="color: red; display: none; font-size: 12px; margin-top: 5px; font-weight: 500;">* Mật khẩu nhập lại không khớp!</p>
+                            <div style="position:relative;">
+                                <input type="password" id="re-password" name="re-password" required style="padding-right:40px;">
+                                <span onclick="togglePassword('re-password', this)" 
+                                    style="position:absolute; right:12px; top:50%; transform:translateY(-50%); cursor:pointer; font-size:18px; color:#aaa;">👁</span>
+                            </div>
+                            <p id="rePassError" style="color: red; display: none; font-size: 12px; margin-top: 5px; font-weight: 500;">* Mật khẩu nhập lại không khớp</p>
                         </div>
                     </div>
                     <button type="submit" id="submitRegBtn" class="login-button">ĐĂNG KÝ</button>
@@ -55,47 +63,9 @@
             </div>
         </div>
     </div>
-
-    <script>
-    document.getElementById('submitRegBtn').addEventListener('click', function(event) {
-        let hopLe = true; 
-        
-        const email = document.getElementById('username').value;
-        const pass = document.getElementById('password').value;
-        const rePass = document.getElementById('re-password').value; // Lấy thêm giá trị nhập lại
-        
-        // 1. Kiểm tra Email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            document.getElementById('emailError').style.display = 'block';
-            hopLe = false; 
-        } else {
-            document.getElementById('emailError').style.display = 'none'; 
-        }
-
-        // 2. Kiểm tra Mật khẩu mới
-        const passRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
-        if (!passRegex.test(pass)) {
-            document.getElementById('passError').style.display = 'block';
-            hopLe = false;
-        } else {
-            document.getElementById('passError').style.display = 'none';
-        }
-
-        // 3. Kiểm tra Mật khẩu nhập lại CÓ KHỚP KHÔNG
-        if (pass !== rePass || rePass === "") {
-            document.getElementById('rePassError').style.display = 'block';
-            hopLe = false;
-        } else {
-            document.getElementById('rePassError').style.display = 'none';
-        }
-
-        if (!hopLe) {
-            event.preventDefault(); // Chặn form nếu có lỗi
-        }
-    });
-</script>
-
+    
+    <script src="../js/api.js"></script>
+    <script src="../js/register.js"></script>
 </body>
 </html>
 
