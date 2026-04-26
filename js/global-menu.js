@@ -4,7 +4,7 @@ function injectGlobalUI() {
         <div class="avatar-dropdown" id="avatarMenu" style="display: none;">
             <ul>
                 <li onclick="window.location.href='wallet.html'">Ví của tôi</li>
-                <li>Xuất file</li>
+                <li onclick="handleExportFile()">Xuất file</li>
                 <li onclick="window.location.href='change-password.html'">Thay đổi mật khẩu</li>
                 <li onclick="showModal('logoutModal')">Đăng xuất</li>
                 <li onclick="showModal('deleteModal')" class="text-danger" style="color: red;">Xóa tài khoản</li>
@@ -96,4 +96,13 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', injectGlobalUI);
 } else {
     injectGlobalUI();
+}
+
+// xuất file 
+function handleExportFile() {
+    const dongY = confirm("Bạn có đồng ý xuất file dữ liệu không?");
+    
+    if (dongY) {
+        alert("Hệ thống đang xuất file... Vui lòng đợi trong giây lát!");
+    }
 }
