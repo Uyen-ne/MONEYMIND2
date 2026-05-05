@@ -26,6 +26,7 @@
             <li><a href="category.html" class="active-link">Danh mục</a></li> 
             <li><a href="transaction.html">Giao dịch</a></li>
             <li><a href="goal.html">Mục tiêu</a></li>
+            <li><a href="wallet.html">Ví của tôi</a></li>
         </ul>
         
         <div class="nav-icons">
@@ -90,7 +91,7 @@
                 <span class="cat-name">Tiền ăn uống</span>
             </div>
             <div class="cat-right">
-                <button class="action-icon-btn">✎</button>
+                <button class="action-icon-btn" onclick="showModal('editCategoryModal')">✎</button>
                 <button class="action-icon-btn">🗑</button>
             </div>
         </div>
@@ -101,7 +102,7 @@
                 <span class="cat-name">Tiền điện nước</span>
             </div>
             <div class="cat-right">
-                <button class="action-icon-btn">✎</button>
+                <button class="action-icon-btn" onclick="showModal('editCategoryModal')">✎</button>
                 <button class="action-icon-btn">🗑</button>
             </div>
         </div>
@@ -112,7 +113,7 @@
                 <span class="cat-name">Tiền mua sắm</span>
             </div>
             <div class="cat-right">
-                <button class="action-icon-btn">✎</button>
+                <button class="action-icon-btn" onclick="showModal('editCategoryModal')">✎</button>
                 <button class="action-icon-btn">🗑</button>
             </div>
         </div>
@@ -153,10 +154,10 @@
         </div>
 
         <div class="form-group">
-            <label style="text-transform: uppercase;">Nguồn tiền</label>
-            <div class="source-selector-row">
-                <button class="source-btn source-in">TIỀN VÀO</button>
-                <button class="source-btn source-out">TIỀN RA</button>
+            <label class="form-label">NGUỒN TIỀN</label>
+            <div class="source-btn-group">
+            <button type="button" class="btn-source" id="btnIncome">TIỀN VÀO</button>
+            <button type="button" class="btn-source" id="btnExpense">TIỀN RA</button>
             </div>
         </div>
 
@@ -179,10 +180,42 @@
     </div>
 </div>
 
+
+
 </main>
 
    <script src="../js/model.js"></script> 
    <script src="../js/global-menu.js"></script>
 
+</body>
+</html>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const btnIncome = document.getElementById('btnIncome');
+    const btnExpense = document.getElementById('btnExpense');
+
+    if (btnIncome && btnExpense) {
+        btnIncome.addEventListener('click', function() {
+            if (this.classList.contains('active-income')) {
+                this.classList.remove('active-income');
+            } else {
+                this.classList.add('active-income');
+                btnExpense.classList.remove('active-expense');
+            }
+        });
+
+        btnExpense.addEventListener('click', function() {
+            if (this.classList.contains('active-expense')) {
+                this.classList.remove('active-expense');
+            } else {
+              
+                this.classList.add('active-expense');
+                btnIncome.classList.remove('active-income');
+            }
+        });
+    }
+});
+    </script>
 </body>
 </html>

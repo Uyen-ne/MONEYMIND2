@@ -3,7 +3,6 @@ function injectGlobalUI() {
     uiContainer.innerHTML = `
         <div class="avatar-dropdown" id="avatarMenu" style="display: none;">
             <ul>
-                <li onclick="window.location.href='wallet.html'">Ví của tôi</li>
                 <li onclick="handleExportFile()">Xuất file</li>
                 <li onclick="window.location.href='change-password.html'">Thay đổi mật khẩu</li>
                 <li onclick="showModal('logoutModal')">Đăng xuất</li>
@@ -105,4 +104,10 @@ function handleExportFile() {
     if (dongY) {
         alert("Hệ thống đang xuất file... Vui lòng đợi trong giây lát!");
     }
+}
+
+// XỬ LÝ XÓA TÀI KHOẢN
+function handleDeleteAccount() {
+    alert("Xóa tài khoản thành công!");
+        window.location.href = "login.html";
 }

@@ -32,8 +32,11 @@
                     
                     <div class="input-group">
                         <label for="password">MẬT KHẨU</label>
-                        <input type="password" id="password" name="password" required>
-                        <p id="passError" style="color: red; display: none; font-size: 12px; margin-top: 5px; font-weight: 500;">* Mật khẩu phải từ 8 ký tự, có 1 chữ IN HOA và 1 số</p>
+                        <div class="password-wrapper" style="position: relative;">
+                            <input type="password" id="password" name="password" required style="width: 100%; padding-right: 40px; box-sizing: border-box;">
+                            <img src="../assets/icon/eye-closed.png" id="eyeIconLogin" class="eye-icon" alt="Hiển thị mật khẩu" onclick="togglePassword('password', 'eyeIconLogin')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; width: 20px;">
+                        </div>
+                                    <p id="passError" style="color: red; display: none; font-size: 12px; margin-top: 5px; font-weight: 500;">* Mật khẩu phải từ 8 ký tự, có 1 chữ IN HOA và 1 số</p>
                     </div>
                     
                     <button type="submit" id="submitBtn" class="login-button">ĐĂNG NHẬP</button>
@@ -87,5 +90,21 @@
             }
         });
     </script>
+
+    <script>
+    function togglePassword(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+
+    if (input.type === "password") {
+        input.type = "text"; 
+        icon.src = "../assets/icon/eye-open.png"; 
+    } else {
+        input.type = "password"; 
+        icon.src = "../assets/icon/eye-closed.png"; 
+    }
+}
+</script>
+
 </body>
 </html>

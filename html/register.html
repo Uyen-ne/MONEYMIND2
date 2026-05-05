@@ -34,17 +34,26 @@
                         <p id="emailError" style="color: red; display: none; font-size: 12px; margin-top: 5px; font-weight: 500;">* Email sai định dạng</p>
                     </div>
                     
-                    <div class="input-row">
+                   <div class="input-row">
                         <div class="input-group">
                             <label for="password">MẬT KHẨU</label>
-                            <input type="password" id="password" name="password" required>
+                            <div class="password-wrapper" style="position: relative;">
+                                <input type="password" id="password" name="password" required style="width: 100%; padding-right: 40px; box-sizing: border-box;">
+                                <img src="../assets/icon/eye-closed.png" id="eyeIconReg1" class="eye-icon" alt="Hiển thị mật khẩu" onclick="togglePassword('password', 'eyeIconReg1')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; width: 20px;">
+                            </div>
                             <p id="passError" style="color: red; display: none; font-size: 12px; margin-top: 5px; font-weight: 500;">* Mật khẩu phải từ 8 ký tự, có 1 chữ IN HOA và 1 số</p>
                         </div>
+                        
+                        <!-- Ô 2: Nhập lại mật khẩu -->
                         <div class="input-group">
                             <label for="re-password">NHẬP LẠI MẬT KHẨU</label>
-                            <input type="password" id="re-password" name="re-password" required>
+                            <div class="password-wrapper" style="position: relative;">
+                                <input type="password" id="re-password" name="re-password" required style="width: 100%; padding-right: 40px; box-sizing: border-box;">
+                                <img src="../assets/icon/eye-closed.png" id="eyeIconReg2" class="eye-icon" alt="Hiển thị mật khẩu" onclick="togglePassword('re-password', 'eyeIconReg2')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; width: 20px;">
+                            </div>
                             <p id="rePassError" style="color: red; display: none; font-size: 12px; margin-top: 5px; font-weight: 500;">* Mật khẩu nhập lại không khớp!</p>
                         </div>
+                        
                     </div>
                     <button type="submit" id="submitRegBtn" class="login-button">ĐĂNG KÝ</button>
                 </form>
@@ -94,6 +103,21 @@
             event.preventDefault(); // Chặn form nếu có lỗi
         }
     });
+</script>
+
+    <script>
+    function togglePassword(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+
+    if (input.type === "password") {
+        input.type = "text"; 
+        icon.src = "../assets/icon/eye-open.png"; 
+    } else {
+        input.type = "password"; 
+        icon.src = "../assets/icon/eye-closed.png"; 
+    }
+}
 </script>
 
 </body>

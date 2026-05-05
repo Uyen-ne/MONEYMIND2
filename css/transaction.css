@@ -4,6 +4,11 @@
     margin: 30px auto;
     font-family: 'Be Vietnam Pro', sans-serif;
     padding: 0 20px;
+    margin-bottom: 30px;
+}
+.section-title {
+    margin-top: 30px;   
+    margin-bottom: 30px;
 }
 
 .page-title {
@@ -74,10 +79,7 @@
     padding: 20px 30px; 
     border-radius: 15px;
     border: 1px solid #333;
-    
-    /* KHOẢNG CÁCH GIỮA CÁC THANH */
     margin-bottom: 30px; 
-    
     box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
     transition: transform 0.2s; /
 }
@@ -149,3 +151,30 @@
 .filter-body::-webkit-scrollbar { width: 6px; }
 .filter-body::-webkit-scrollbar-thumb { background: #D9D9D9; border-radius: 10px; }
 
+
+.search-box {
+    position: relative; 
+    width: 100%;       
+    max-width: 900px;   
+    margin: 0 auto;  
+    margin-top: 24px;   
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;         
+    top: 50%;         
+    transform: translateY(-50%); 
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;      
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px 12px 45px; 
+    border-radius: 25px;         
+    border: 1px solid #ccc;
+    outline: none;
+    font-family: inherit;
+}

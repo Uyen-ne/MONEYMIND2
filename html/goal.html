@@ -26,6 +26,7 @@
                 <li><a href="category.html">Danh mục</a></li>
                 <li><a href="transaction.html">Giao dịch</a></li>
                 <li><a href="goal.html" class="active-link">Mục tiêu</a></li> 
+                <li><a href="wallet.html">Ví của tôi</a></li>
         </ul>
         
         <div class="nav-icons">
@@ -49,7 +50,7 @@
             <p class="category-label">Ăn uống</p>
             <div class="progress-track">
                 <div class="progress-fill fill-red" style="width: 50%;">
-                    <span>đã xài: 500.000 vnđ</span>
+                    <span>đã dùng: 500.000 vnđ</span>
                 </div>
                 <div class="progress-remainder">
                     <span>còn: 500.000 vnđ</span>
@@ -61,7 +62,7 @@
             <p class="category-label">Đi lại</p>
             <div class="progress-track">
                 <div class="progress-fill fill-blue" style="width: 35%;">
-                    <span>đã xài: 500.000 vnđ</span>
+                    <span>đã dùng: 500.000 vnđ</span>
                 </div>
                 <div class="progress-remainder">
                     <span>còn: 1.500.000 vnđ</span>
@@ -73,7 +74,7 @@
             <p class="category-label">Mua đồ linh tinh</p>
             <div class="progress-track">
                 <div class="progress-fill fill-green" style="width: 50%;">
-                    <span>đã xài: 2.000.000 vnđ</span>
+                    <span>đã dùng: 2.000.000 vnđ</span>
                 </div>
                 <div class="progress-remainder">
                     <span>còn: 50.000 vnđ</span>
@@ -97,7 +98,7 @@
                     <div class="amount-pill">6.000.000 VND</div>
                 </div>
                 <div class="goal-actions">
-                    <button class="icon-btn edit-btn">✎</button>
+                    <button class="icon-btn edit-btn" onclick="showModal('editGoalModal')">✎</button>
                     <button class="icon-btn delete-btn">🗑</button>
                 </div>
             </div>
@@ -111,7 +112,7 @@
                     <div class="amount-pill">6.000.000 VND</div>
                 </div>
                 <div class="goal-actions">
-                    <button class="icon-btn edit-btn">✎</button>
+                    <button class="icon-btn edit-btn" onclick="showModal('editGoalModal')">✎</button>
                     <button class="icon-btn delete-btn">🗑</button>
                 </div>
             </div>
@@ -125,7 +126,7 @@
                     <div class="amount-pill">6.000.000 VND</div>
                 </div>
                 <div class="goal-actions">
-                    <button class="icon-btn edit-btn">✎</button>
+                    <button class="icon-btn edit-btn" onclick="showModal('editGoalModal')">✎</button>
                     <button class="icon-btn delete-btn">🗑</button>
                 </div>
             </div>
@@ -134,28 +135,104 @@
 
     <div class="modal-overlay" id="addGoalModal">
     <div class="modal-card form-card">
-        <h2 class="form-title">Đặt mục tiêu mới</h2>
+            <h2 class="form-title">Đặt mục tiêu mới</h2>
+            
+            <!-- Ô 1: Tên mục tiêu -->
+            <div class="form-group">
+                <label for="goal-name">Tên mục tiêu</label>
+                <input type="text" id="goal-name" class="form-input" placeholder="VD: Ăn uống, Giải trí..." />
+            </div>
 
+            <!-- Ô 2: CHỌN DANH MỤC (Thêm mới, xài chung class form-group và form-input của bạn) -->
+            <div class="form-group">
+                <label for="goal-category">Chọn danh mục</label>
+                <select id="goal-category" class="form-input" style="appearance: auto; cursor: pointer;">
+                    <option value="all">Tổng / Tất cả danh mục</option>
+                    <option value="food">Ăn uống</option>
+                    <option value="shopping">Mua sắm</option>
+                    <option value="transport">Đi lại</option>
+                    <option value="entertainment">Giải trí</option>
+                    <option value="bills">Hóa đơn & Điện nước</option>
+                </select>
+            </div>
+
+            <!-- Ô 3: Hạn mức tối đa -->
+            <div class="form-group">
+                <label for="goal-limit">Hạn mức tối đa</label>
+                <input type="text" id="goal-limit" class="form-input" placeholder="Nhập số tiền (VNĐ)" />
+            </div>
+
+            <!-- Các nút giữ nguyên class cũ của bạn -->
+            <div class="modal-btns">
+                <button class="btn-form-cancel" onclick="closeModal('addGoalModal')">HỦY</button>
+                <button class="btn-form-apply">LƯU</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CHỈNH SỬA MỤC TIÊU (Sạch sẽ, chờ Backend xử lý) -->
+<div class="modal-overlay" id="editGoalModal" style="display: none;">
+    <div class="modal-card form-card">
+        <h2 class="form-title">Chỉnh sửa mục tiêu</h2>
+        
+        <!-- Ô 1: Tên mục tiêu -->
         <div class="form-group">
-            <label for="goal-name">Tên mục tiêu</label>
-            <input type="text" id="goal-name" class="form-input" placeholder="VD: Ăn uống, Giải trí..." />
+            <label for="edit-goal-name">Tên mục tiêu</label>
+            <!-- Chỉ dùng placeholder để gợi ý, không dùng value -->
+            <input type="text" id="edit-goal-name" class="form-input" placeholder="Dữ liệu sẽ được load ở đây..." />
         </div>
 
+        <!-- Ô 2: CHỌN DANH MỤC -->
         <div class="form-group">
-            <label for="goal-limit">Hạn mức tối đa</label>
-            <input type="text" id="goal-limit" class="form-input" placeholder="Nhập số tiền (VND)" />
+            <label for="edit-goal-category">Chọn danh mục</label>
+            <select id="edit-goal-category" class="form-input" style="appearance: auto; cursor: pointer;">
+                <option value="all">Tổng / Tất cả danh mục</option>
+                <option value="food">Ăn uống</option>
+                <option value="shopping">Mua sắm</option>
+                <option value="transport">Đi lại</option>
+                <option value="entertainment">Giải trí</option>
+                <option value="bills">Hóa đơn & Điện nước</option>
+            </select>
         </div>
 
+        <!-- Ô 3: Hạn mức tối đa -->
+        <div class="form-group">
+            <label for="edit-goal-limit">Hạn mức tối đa</label>
+            <!-- Chỉ dùng placeholder để gợi ý, không dùng value -->
+            <input type="text" id="edit-goal-limit" class="form-input" placeholder="Số tiền sẽ được load ở đây..." />
+        </div>
+
+        <!-- Các nút Cập nhật và Hủy -->
         <div class="modal-btns">
-            <button class="btn-form-cancel" onclick="closeModal('addGoalModal')">HỦY</button>
-            <button class="btn-form-apply">LƯU</button>
+            <button class="btn-form-cancel" onclick="closeModal('editGoalModal')">HỦY</button>
+            <button class="btn-form-apply" onclick="closeModal('editGoalModal')">CẬP NHẬT</button>
         </div>
     </div>
-    </div>
+</div>
 
 </main>
    <script src="../js/model.js"></script> 
    <script src="../js/global-menu.js"></script>
+
+   <script>
+        // Hàm mở bảng
+        function showModal(id) {
+            var modal = document.getElementById(id);
+            if(modal) {
+                modal.style.display = 'flex'; // hoặc 'block' tùy CSS của bạn
+            } else {
+                console.log("Lỗi: Không tìm thấy ID " + id);
+            }
+        }
+
+        // Hàm đóng bảng
+        function closeModal(id) {
+            var modal = document.getElementById(id);
+            if(modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 
 </body>
 </html>

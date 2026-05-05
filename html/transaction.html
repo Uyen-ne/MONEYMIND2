@@ -26,6 +26,7 @@
             <li><a href="category.html">Danh mục</a></li>
             <li><a href="transaction.html" class="active-link">Giao dịch</a></li> 
             <li><a href="goal.html">Mục tiêu</a></li>
+            <li><a href="wallet.html">Ví của tôi</a></li>
         </ul>
         
         <div class="nav-icons">
@@ -38,8 +39,9 @@
     <main class="transaction-container">
     <h1>GIAO DỊCH</h1>
 
-    <div class="search-section">
-        <div class="circle-btn small-outline"></div> <input type="text" class="search-input" placeholder="Tìm kiếm">
+    <div class="search-box">
+        <img src="../assets/icon/search.png" alt="Search" class="search-icon">
+        <input type="text" class="search-input" placeholder="Tìm kiếm">
     </div>
 
     <div class="action-bar">
@@ -47,44 +49,65 @@
         <button class="btn-pill" onclick="showModal('filterTransaction')">Bộ lọc</button>
     </div>
 
-    <div class="filter-all-row">
-        <button class="btn-pill small">Tất cả</button>
-    </div>
 
     <section class="transaction-section">
         <h2 class="section-title">Tiền vào</h2>
         
-        <div class="transaction-card">
-            <div class="card-info">
-                <p class="date">Ngày 20/3/2026</p>
-                <p class="desc">HUYNHNGOCNHAUYEN Chuyển khoản 500.000vnd Sinh nhat zui ze</p>
-                <p class="balance">Số dư tài khoản: 100.000.000 vnđ</p>
+        <!-- Giao dịch 1 -->
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+            <div class="transaction-card" style="flex: 1; margin-bottom: 0;">
+                <div class="card-info">
+                    <p class="date">Ngày 20/3/2026</p>
+                    <p class="desc">NHAUYEN Chuyển khoản 500.000vnd Sinh nhat zui ze</p>
+                    <p class="balance">Số dư tài khoản: 100.000.000 vnđ</p>
+                </div>
+                <button class="tag-btn pink-light">Quà tặng</button>
             </div>
-            <button class="tag-btn pink-light">Quà tặng</button>
+            <!-- Nút bấm -->
+            <div style="display: flex; gap: 10px; flex-shrink: 0;">
+                <button onclick="showModal('editTransaction')" style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #555; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">✎</button>
+                <button style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #d32f2f; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">🗑</button>
+            </div>
         </div>
 
-        <div class="transaction-card">
-            <div class="card-info">
-                <p class="date">Ngày 20/3/2026</p>
-                <p class="desc">HUYNHNGOCNHAUYEN Chuyển khoản 500.000vnd Tiền sinh hoạt</p>
-                <p class="balance">Số dư tài khoản: 100.000.000 vnđ</p>
+        <!-- Giao dịch 2 -->
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+            <div class="transaction-card" style="flex: 1; margin-bottom: 0;">
+                <div class="card-info">
+                    <p class="date">Ngày 20/3/2026</p>
+                    <p class="desc">NHAUYEN Chuyển khoản 500.000vnd Tiền sinh hoạt</p>
+                    <p class="balance">Số dư tài khoản: 100.000.000 vnđ</p>
+                </div>
+                <button class="tag-btn green-light">Định kỳ</button>
             </div>
-            <button class="tag-btn green-light">Định kỳ</button>
+            <!-- Nút bấm -->
+            <div style="display: flex; gap: 10px; flex-shrink: 0;">
+                <button onclick="showModal('editTransaction')" style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #555; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">✎</button>
+                <button style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #d32f2f; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">🗑</button>
+            </div>
         </div>
     </section>
 
     <section class="transaction-section">
         <h2 class="section-title">Tiền ra</h2>
         
-        <div class="transaction-card">
-            <div class="card-info">
-                <p class="date">Ngày 20/3/2026</p>
-                <p class="desc">Đi chợ</p>
-                <p class="balance">Số dư tài khoản: 100.000.000 vnđ</p>
+        <!-- Giao dịch 3 -->
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+            <div class="transaction-card" style="flex: 1; margin-bottom: 0;">
+                <div class="card-info">
+                    <p class="date">Ngày 20/3/2026</p>
+                    <p class="desc">Đi chợ</p>
+                    <p class="balance">Số dư tài khoản: 100.000.000 vnđ</p>
+                </div>
+                <button class="tag-btn blue-light">Ăn uống</button>
             </div>
-            <button class="tag-btn blue-light">Ăn uống</button>
+            <!-- Nút bấm -->
+            <div style="display: flex; gap: 10px; flex-shrink: 0;">
+                <button onclick="showModal('editTransaction')" style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #555; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">✎</button>
+                <button style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #d32f2f; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">🗑</button>
+            </div>
         </div>
-        </section>
+    </section>
 
     <!-- THÊM GIAO DỊCH -->
     <div class="modal-overlay" id="addTransaction">
@@ -104,10 +127,7 @@
                 <button class="opt-select">Ngân hàng</button>
                 <button class="opt-select">Thẻ quốc tế</button>
                 <button class="opt-select">Thẻ tín dụng</button>
-                <button class="opt-select">Ví trả sau</button>
-            </div>
-            <div class="center-btn">
-                <button class="btn-more-pink">...</button>
+                <button class="opt-select">...</button>
             </div>
         </div>
 
@@ -119,10 +139,7 @@
                 <button class="opt-select">Điện nước</button>
                 <button class="opt-select">Hóa đơn</button>
                 <button class="opt-select">Giải trí</button>
-                <button class="opt-select">Ăn uống</button>
-            </div>
-            <div class="center-btn">
-                <button class="btn-more-pink">...</button>
+                <button class="opt-select">...</button>
             </div>
         </div>
 
@@ -131,9 +148,14 @@
             <input type="text" placeholder="Nhập số tiền" class="form-input" />
         </div>
 
+        <div class="form-group">
+            <label class="form-label">Ghi chú</label>
+            <textarea class="form-input" rows="2" placeholder="Nhập ghi chú cho giao dịch này..."></textarea>
+        </div>
+
         <div class="modal-btns">
             <button class="btn-form-cancel" onclick="closeModal('addTransaction')">HỦY</button>
-            <button class="btn-form-apply">ÁP DỤNG</button>
+            <button class="btn-form-apply">THÊM/LƯU</button>
         </div>
     </div>
 </div>
@@ -143,7 +165,6 @@
     <div class="modal-card form-card filter-card">
         
         <div class="filter-header">
-            <button class="btn-back-pink" onclick="closeModal('filterTransaction')">←</button>
             <h2 class="form-title mb-0">Bộ lọc Lịch sử giao dịch</h2>
         </div>
 
@@ -156,9 +177,8 @@
                     <button class="opt-select">Tháng 3/2026</button>
                     <button class="opt-select">Tháng 2/2026</button>
                     <button class="opt-select">Tháng 1/2026</button>
-                    <button class="opt-select">Tháng 12/2025</button>
+                    <button class="opt-select">...</button>
                 </div>
-                <div class="center-btn"><button class="btn-more-pink">...</button></div>
             </div>
 
             <div class="form-group">
@@ -169,9 +189,8 @@
                     <button class="opt-select">Ngân hàng</button>
                     <button class="opt-select">Thẻ quốc tế</button>
                     <button class="opt-select">Thẻ tín dụng</button>
-                    <button class="opt-select">Ví trả sau</button>
+                    <button class="opt-select">...</button>
                 </div>
-                <div class="center-btn"><button class="btn-more-pink">...</button></div>
             </div>
 
             <div class="form-group">
@@ -182,9 +201,8 @@
                     <button class="opt-select">Rút tiền</button>
                     <button class="opt-select">Hóa đơn</button>
                     <button class="opt-select">Giải trí</button>
-                    <button class="opt-select">Ăn uống</button>
+                    <button class="opt-select">...</button>
                 </div>
-                <div class="center-btn"><button class="btn-more-pink">...</button></div>
             </div>
 
             <div class="form-group">
@@ -204,15 +222,93 @@
 
         <div class="modal-btns">
             <button class="btn-form-cancel" onclick="closeModal('filterTransaction')">HỦY</button>
-            <button class="btn-form-apply">ÁP DỤNG</button>
+            <button class="btn-form-apply">THÊM</button>
         </div>
     </div>
     </div>
+
+    <!-- MODAL CHỈNH SỬA GIAO DỊCH -->
+<div class="modal-overlay" id="editTransaction" style="display: none;">
+    <div class="modal-card form-card">
+        <h2 class="form-title">Chỉnh sửa giao dịch</h2>
+
+        <!-- Ô Chọn thời gian -->
+        <div class="form-group">
+            <label>Chọn thời gian</label>
+            <input type="date" class="form-input" /> 
+        </div>
+
+        <!-- Ô Chọn tài khoản/thẻ -->
+        <div class="form-group">
+            <label>Chọn tài khoản/thẻ</label>
+            <div class="grid-options">
+                <button class="opt-select">Tiền mặt</button>
+                <button class="opt-select">Ví điện tử</button>
+                <button class="opt-select">Ngân hàng</button>
+                <button class="opt-select">Thẻ quốc tế</button>
+                <button class="opt-select">Thẻ tín dụng</button>
+                <button class="opt-select">...</button>
+            </div>
+        </div>
+
+        <!-- Ô Chọn danh mục -->
+        <div class="form-group">
+            <label>Theo danh mục</label>
+            <div class="grid-options">
+                <button class="opt-select">Tất cả</button>
+                <button class="opt-select">Mua sắm</button>
+                <button class="opt-select">Điện nước</button>
+                <button class="opt-select">Hóa đơn</button>
+                <button class="opt-select">Giải trí</button>
+                <button class="opt-select">...</button>
+            </div>
+        </div>
+
+        <!-- Ô Nhập số tiền -->
+        <div class="form-group">
+            <label>Theo số tiền</label>
+            <input type="text" placeholder="Dữ liệu sẽ load ở đây..." class="form-input" />
+        </div>
+
+        <!-- Ô Ghi chú -->
+        <div class="form-group">
+            <label class="form-label">Ghi chú</label>
+            <textarea class="form-input" rows="2" placeholder="Dữ liệu ghi chú sẽ load ở đây..."></textarea>
+        </div>
+
+        <!-- Nút hành động -->
+        <div class="modal-btns">
+            <button class="btn-form-cancel" onclick="closeModal('editTransaction')">HỦY</button>
+            <button class="btn-form-apply" onclick="closeModal('editTransaction')">CẬP NHẬT</button>
+        </div>
+    </div>
+</div>
         
 </main>
     
    <script src="../js/model.js"></script> 
    <script src="../js/global-menu.js"></script>
+
+   <script>
+    // Hàm mở bảng
+    function showModal(id) {
+        var modal = document.getElementById(id);
+        if(modal) {
+            modal.style.display = 'flex'; // hoặc 'block' tùy CSS của bạn
+        } else {
+            console.log("Lỗi: Không tìm thấy ID " + id);
+        }
+    }
+
+    // Hàm đóng bảng
+    function closeModal(id) {
+        var modal = document.getElementById(id);
+        if(modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
 </body>
     
 </html>
+

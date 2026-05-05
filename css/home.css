@@ -151,18 +151,29 @@
     margin-bottom: 25px;
 }
 
+
 .filter-btn {
-    padding: 10px 24px;
-    background: #E8E8E8;
-    border-radius: 999px;
-    border: none;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: #fff;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    font-weight: 500;      
 }
 
-.filter-btn:hover { background: #d8d8d8; }
+.filter-btn img {
+    width: 24px; 
+    height: 24px;
+}
+
+
+.filter-btn:hover {
+    background-color: #f0f0f0; 
+}
 
 .stat-item {
     display: flex;
@@ -234,6 +245,5 @@
 .yellow-bg { background-color: #F9FFD1; }
 .green-bg { background-color: #E2FFD1; }
 .purple-bg { background-color: #F1D1FF; }
-
 
 

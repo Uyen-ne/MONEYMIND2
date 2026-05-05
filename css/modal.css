@@ -162,12 +162,12 @@
 
 /* Nút Hủy và Áp Dụng ở đáy form */
 .btn-form-cancel {
-    background: #D4E6F1; /* Xanh lơ */
-    color: #333;
+    background: #ff8277; /* Xanh lơ */
+    color: #ffffff;
 }
 
 .btn-form-apply {
-    background: #F1948A; /* Đỏ cam */
+    background: #76e063; /* Đỏ cam */
     color: white;
 }
 

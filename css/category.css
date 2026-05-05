@@ -113,7 +113,7 @@
 .action-icon-btn {
     width: 32px; height: 32px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.7); /* Nền trắng hơi trong suốt */
+    background-color: rgba(255, 255, 255, 0.7);
     border: 1px solid #ddd;
     color: #666;
     font-size: 14px;
@@ -125,7 +125,7 @@
 }
 
 .action-icon-btn:hover {
-    background-color: #fff;
+    background-color: #fce5e5;
     border-color: #333;
     color: #000;
 }
@@ -135,12 +135,47 @@
     height: 60%;
     object-fit: contain;
 }
-/* =========================================
-   BẢNG MÀU NỀN CÁC THẺ (Chuẩn màu Figma)
-   ========================================= */
-.bg-pink { background-color: #F8D7D7; }         /* Tiền lương */
-.bg-light-green { background-color: #D6F5D6; }  /* Tiền đầu tư */
-.bg-yellow { background-color: #FFF2CC; }       /* Tiền lãi ngân hàng */
-.bg-mint { background-color: #D1F2EB; }         /* Tiền ăn uống */
-.bg-blue { background-color: #D6EAF8; }         /* Tiền điện nước */
-.bg-light-pink { background-color: #F5DDEB; }   /* Tiền mua sắm */
+
+.bg-pink { background-color: #F8D7D7; }         
+.bg-light-green { background-color: #D6F5D6; }  
+.bg-yellow { background-color: #FFF2CC; }       
+.bg-mint { background-color: #D1F2EB; }         
+.bg-blue { background-color: #D6EAF8; }       
+.bg-light-pink { background-color: #F5DDEB; }   
+
+.source-btn-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 8px;
+}
+
+
+.btn-source {
+    flex: 1;
+    padding: 10px 0;
+    border: 1px solid #ccc;       
+    background-color: #f8f9fa;    
+    color: #666;                
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;   
+}
+
+.btn-source:hover {
+    background-color: #e2e6ea;
+}
+
+.btn-source.active-income {
+    background-color: #d1f2eb !important; 
+    border-color: #28b463 !important;     
+    color: #186a3b !important;            
+}
+
+.btn-source.active-expense {
+    background-color: #f4ecf7 !important; 
+    border-color: #9b59b6 !important;     
+    color: #512e5f !important;           
+}
+
+
