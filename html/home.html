@@ -16,23 +16,23 @@
 <body class="home-bg">
 
     <nav class="navbar">
-    <div class="logo">
-        <img src="../assets/icon/logo.png" alt="MoneyMind">
-        <span>MoneyMind</span>
-    </div>
-
-    <div class="nav-right-group">
-        <ul class="nav-links">
-            <li><a href="category.html">Danh mục</a></li>
-            <li><a href="transaction.html">Giao dịch</a></li>
-            <li><a href="goal.html">Mục tiêu</a></li>
-            <li><a href="wallet.html">Ví của tôi</a></li>
-        </ul>
-        <div class="nav-icons">
-            <img src="../assets/icon/bell.png" alt="Notification" class="icon">
-            <img src="../assets/icon/avatar.png" alt="User" class="avatar-img">
+        <div class="logo">
+            <img src="../assets/icon/logo.png" alt="MoneyMind">
+            <span>MoneyMind</span>
         </div>
-    </div>
+
+        <div class="nav-right-group">
+            <ul class="nav-links">
+                <li><a href="category.html">Danh mục</a></li>
+                <li><a href="transaction.html">Giao dịch</a></li>
+                <li><a href="goal.html">Mục tiêu</a></li>
+                <li><a href="wallet.html">Ví của tôi</a></li>
+            </ul>
+            <div class="nav-icons">
+                <img src="../assets/icon/bell.png" alt="Notification" class="icon">
+                <img src="../assets/icon/avatar.png" alt="User" class="avatar-img">
+            </div>
+        </div>
     </nav>
   
     <div class="container">
@@ -41,172 +41,84 @@
                 <div class="user-avatar-container">
                      <img src="../assets/icon/avatar.png" alt="Avatar" class="user-avatar-img">
                  </div>
-             <div>
-        <p>Số dư hiện tại</p>
-        <h2>200.000.000 đ</h2>
-    </div>
-</div>
+                 <div>
+                    <p>Số dư hiện tại</p>
+                    <h2 id="totalBalance">0 đ</h2>
+                </div>
+            </div>
             <div class="alert-info">
-                <p>Chi tiêu tháng 4 này đã <span class="highlight">tăng 50%</span> so với tháng 3 trước!</p>
+                <p id="altertText">Đang tải dữ liệu chi tiêu...</p>
             </div>
         </header>
 
-    <section class="stats-section">
-    <!-- Đã thêm style ép nằm dọc cho khối bên trái -->
-    <div class="stats-left" style="display: flex; flex-direction: column; gap: 20px;">
-        
-        <!-- Đã sửa lỗi thiếu chữ div và thêm style ép nằm dọc cho Header -->
-        <div class="stats-header" style="display: flex; flex-direction: column; align-items: flex-start; gap: 15px;">
-            <h2 style="margin: 0;">Thống kê chung</h2>
-            
-            <div class="global-filters" style="display: flex; gap: 10px; align-items: center; width: 100%;">
-                
-                <!-- 1. BỘ LỌC THỜI GIAN -->
-                <div class="filter-wrapper" style="position: relative; z-index: 10;">
-                    <button class="filter-btn" onclick="toggleFilterMenu('timeFilterMenu')" style="display: flex; align-items: center; gap: 5px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 20px; background: white; cursor: pointer;">
-                        <img src="../assets/icon/filter.png" alt="Bộ lọc" style="width: 14px;">
-                        <span id="timeFilterResult" style="font-size: 13px;">Tất cả thời gian</span>
-                    </button>
-                    <!-- Popup Thời Gian -->
-                    <div class="filter-popup" id="timeFilterMenu" style="display: none; position: absolute; top: 110%; left: 0; background: white; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 12px; border-radius: 12px; width: 180px;">
-                        <p style="margin: 0 0 10px 0; font-size: 13px; color: #666;">Lọc theo thời gian:</p>
-                        <div style="display: flex; flex-direction: column; gap: 6px;">
-                            <button type="button" class="opt-btn" onclick="showTimeInput('date')" style="padding: 6px; border: none; background: #ffd8d8; border-radius: 6px; cursor: pointer;">Theo ngày</button>
-                            <button type="button" class="opt-btn" onclick="showTimeInput('week')" style="padding: 6px; border: none; background: #ffd8d8; border-radius: 6px; cursor: pointer;">Theo tuần</button>
-                            <button type="button" class="opt-btn" onclick="showTimeInput('month')" style="padding: 6px; border: none; background: #ffd8d8; border-radius: 6px; cursor: pointer;">Theo tháng</button>
-                            <button type="button" class="opt-btn" onclick="applyTimeFilter('all', 'all')" style="padding: 6px; border: 1px solid #ccc; background: #fff; border-radius: 6px; cursor: pointer;">Tất cả</button>
+        <section class="stats-section">
+            <div class="stats-left" style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="stats-header" style="display: flex; flex-direction: column; align-items: flex-start; gap: 15px;">
+                    <h2 style="margin: 0;">Thống kê chung</h2>
+                    
+                    <div class="global-filters" style="display: flex; gap: 10px; align-items: center; width: 100%;">
+                        
+                        <!-- 1. BỘ LỌC THỜI GIAN -->
+                        <div class="filter-wrapper" style="position: relative; z-index: 10;">
+                            <button class="filter-btn" onclick="toggleFilterMenu('timeFilterMenu')" style="display: flex; align-items: center; gap: 5px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 20px; background: white; cursor: pointer;">
+                                <img src="../assets/icon/filter.png" alt="Bộ lọc" style="width: 14px;">
+                                <span id="timeFilterResult" style="font-size: 13px;">Tháng này</span>
+                            </button>
+                            
+                            <!-- Popup Thời Gian -->
+                            <div class="filter-popup" id="timeFilterMenu" style="display: none; position: absolute; top: 110%; left: 0; background: white; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 12px; border-radius: 12px; width: 180px;">
+                                <p style="margin: 0 0 10px 0; font-size: 13px; color: #666;">Lọc theo thời gian:</p>
+                                <div style="display: flex; flex-direction: column; gap: 6px;">
+                                    <button type="button" class="opt-btn" onclick="showTimeInput('date')" style="padding: 6px; border: none; background: #ffd8d8; border-radius: 6px; cursor: pointer;">Theo ngày</button>
+                                    <button type="button" class="opt-btn" onclick="showTimeInput('week')" style="padding: 6px; border: none; background: #ffd8d8; border-radius: 6px; cursor: pointer;">Theo tuần</button>
+                                    <button type="button" class="opt-btn" onclick="showTimeInput('month')" style="padding: 6px; border: none; background: #ffd8d8; border-radius: 6px; cursor: pointer;">Theo tháng</button>
+                                </div>
+                                <div id="calendarBox" style="display: none; margin-top: 10px;">
+                                    <input type="date" id="dateInput" style="display: none; width: 100%; padding: 5px; border-radius: 5px; border: 1px solid #ccc;" onchange="applyTimeFilter(this.value, 'date')">
+                                    <input type="week" id="weekInput" style="display: none; width: 100%; padding: 5px; border-radius: 5px; border: 1px solid #ccc;" onchange="applyTimeFilter(this.value, 'week')">
+                                    <input type="month" id="monthInput" style="display: none; width: 100%; padding: 5px; border-radius: 5px; border: 1px solid #ccc;" onchange="applyTimeFilter(this.value, 'month')">
+                                </div>
+                            </div>
                         </div>
-                        <div id="calendarBox" style="display: none; margin-top: 10px;">
-                            <input type="date" id="dateInput" style="display: none; width: 100%; padding: 5px; border-radius: 5px; border: 1px solid #ccc;" onchange="applyTimeFilter(this.value, 'date')">
-                            <input type="week" id="weekInput" style="display: none; width: 100%; padding: 5px; border-radius: 5px; border: 1px solid #ccc;" onchange="applyTimeFilter(this.value, 'week')">
-                            <input type="month" id="monthInput" style="display: none; width: 100%; padding: 5px; border-radius: 5px; border: 1px solid #ccc;" onchange="applyTimeFilter(this.value, 'month')">
+
+                        <!-- 2. BỘ LỌC VÍ -->
+                        <div class="filter-wrapper" style="position: relative; z-index: 10;">
+                            <button class="filter-btn" onclick="toggleFilterMenu('walletFilterMenu')" style="display: flex; align-items: center; gap: 5px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 20px; background: white; cursor: pointer;">
+                                <span id="walletFilterResult" style="font-size: 13px;">Tất cả ví</span>
+                            </button>
+                            
+                            <!-- Popup Ví -->
+                            <div class="filter-popup" id="walletFilterMenu" style="display: none; position: absolute; top: 110%; left: 0; background: white; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 12px; border-radius: 12px; width: 140px;">
+                                <p style="margin: 0 0 10px 0; font-size: 13px; color: #666;">Lọc theo ví:</p>
+                                <div id="walletFilterOptions" style="display: flex; flex-direction: column; gap: 6px;">
+                                    <!-- Nút tĩnh mặc định, các ví khác sẽ được API append vào đây -->
+                                    <button type="button" onclick="applyWalletFilter(null, 'Tất cả ví')" style="padding: 6px; border: 1px solid #ccc; background: #fff; border-radius: 6px; cursor: pointer;">Tất cả ví</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2. BỘ LỌC VÍ -->
-                <div class="filter-wrapper" style="position: relative; z-index: 10;">
-                    <button class="filter-btn" onclick="toggleFilterMenu('walletFilterMenu')" style="display: flex; align-items: center; gap: 5px; padding: 6px 12px; border: 1px solid #ccc; border-radius: 20px; background: white; cursor: pointer;">
-                        <span id="walletFilterResult" style="font-size: 13px;">Tất cả ví</span>
-                    </button>
-                    <!-- Popup Ví -->
-                    <div class="filter-popup" id="walletFilterMenu" style="display: none; position: absolute; top: 110%; left: 0; background: white; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 12px; border-radius: 12px; width: 140px;">
-                        <p style="margin: 0 0 10px 0; font-size: 13px; color: #666;">Lọc theo ví:</p>
-                        <div style="display: flex; flex-direction: column; gap: 6px;">
-                            <button type="button" class="opt-btn" onclick="applyWalletFilter('Tất cả ví')" style="padding: 6px; border: 1px solid #ccc; background: #fff; border-radius: 6px; cursor: pointer;">Tất cả ví</button>
-                            <button type="button" class="opt-btn" onclick="applyWalletFilter('Tiền mặt')" style="padding: 6px; border: none; background: #f0f0f0; border-radius: 6px; cursor: pointer;">Tiền mặt</button>
-                            <button type="button" class="opt-btn" onclick="applyWalletFilter('Ngân hàng')" style="padding: 6px; border: none; background: #f0f0f0; border-radius: 6px; cursor: pointer;">Ngân hàng</button>
-                            <button type="button" class="opt-btn" onclick="applyWalletFilter('Ví điện tử')" style="padding: 6px; border: none; background: #f0f0f0; border-radius: 6px; cursor: pointer;">Ví điện tử</button>
-                        </div>
-                    </div>
-                </div>
+                <!-- Chứa danh sách thống kê -->
+                <div id="statItems"></div>
             </div>
-        </div>
 
-        <div class="stat-item">
-            <span>Ăn uống:</span>
-            <div class="stat-amount yellow-bg">700.000 đ</div>
-        </div>
-        <div class="stat-item">
-            <span>Chi phí đi lại:</span>
-            <div class="stat-amount green-bg">300.000 đ</div>
-        </div>
-        <div class="stat-item">
-            <span>Chi phí cố định:</span>
-            <div class="stat-amount purple-bg">1.000.000 đ</div>
-        </div>
-    </div>
-
-    <div class="stats-right">
-        <canvas id="myPieChart"></canvas>
-    </div>
-</section>
+            <div class="stats-right">
+                <canvas id="myPieChart"></canvas>
+            </div>
+        </section>
 
         <section class="recent-transactions">
             <h3>Giao dịch gần đây</h3>
-            <div class="trans-list">
-                <div class="trans-card">
-                    <p class="date">Ngày 20/3/2026</p>
-                    <p class="desc">HUYNHNGOCNHAUYEN Chuyển khoản 500.000vnd, Sinh nhat zui ze</p>
-                    <p class="balance-after">Số dư tài khoản: 100.000.000 vnd</p>
-                </div>
-                </div>
+            <div class="trans-list" id="transList"></div>
         </section>
-
-
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="../js/api.js"></script>
     <script src="../js/chart-setup.js"></script>
     <script src="../js/global-menu.js"></script>
-
+    <script src="../js/home.js"></script>
 </body>
 </html>
-
-<script>
-    // 1. Hàm bật/tắt popup
-    function toggleFilterMenu(menuId) {
-        const menu = document.getElementById(menuId);
-        // Tắt menu khác nếu đang mở
-        if (menuId === 'timeFilterMenu') document.getElementById('walletFilterMenu').style.display = 'none';
-        if (menuId === 'walletFilterMenu') document.getElementById('timeFilterMenu').style.display = 'none';
-        
-        menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
-    }
-
-    // 2. Hàm hiện input lịch
-    function showTimeInput(type) {
-        document.getElementById('calendarBox').style.display = 'block';
-        document.getElementById('dateInput').style.display = 'none';
-        document.getElementById('weekInput').style.display = 'none';
-        document.getElementById('monthInput').style.display = 'none';
-
-        const targetInput = document.getElementById(type + 'Input');
-        targetInput.style.display = 'block';
-        try { targetInput.showPicker(); } catch (e) {}
-    }
-
-    // 3. Hàm xử lý Lọc Thời Gian
-    function applyTimeFilter(value, type) {
-        if (!value && type !== 'all') return;
-        let displayText = "Tất cả thời gian";
-        
-        if (type === 'date') {
-            const parts = value.split('-');
-            displayText = `${parts[2]}/${parts[1]}/${parts[0]}`;
-        } else if (type === 'week') {
-            const parts = value.split('-W');
-            displayText = `Tuần ${parts[1]}/${parts[0]}`;
-        } else if (type === 'month') {
-            const parts = value.split('-');
-            displayText = `Tháng ${parts[1]}/${parts[0]}`;
-        }
-
-        document.getElementById('timeFilterResult').innerText = displayText;
-        document.getElementById('timeFilterMenu').style.display = 'none';
-        document.getElementById('calendarBox').style.display = 'none';
-    }
-
-    // 4. Hàm xử lý Lọc Ví
-    function applyWalletFilter(walletName) {
-        document.getElementById('walletFilterResult').innerText = walletName;
-        document.getElementById('walletFilterMenu').style.display = 'none';
-    }
-
-    // 5. Đóng popup khi bấm ra ngoài
-    document.addEventListener('click', function(event) {
-        const timeMenu = document.getElementById('timeFilterMenu');
-        const walletMenu = document.getElementById('walletFilterMenu');
-        const timeBtn = document.querySelector('[onclick="toggleFilterMenu(\'timeFilterMenu\')"]');
-        const walletBtn = document.querySelector('[onclick="toggleFilterMenu(\'walletFilterMenu\')"]');
-
-        if (timeMenu.style.display === 'block' && !timeMenu.contains(event.target) && !timeBtn.contains(event.target)) {
-            timeMenu.style.display = 'none';
-            document.getElementById('calendarBox').style.display = 'none';
-        }
-        if (walletMenu.style.display === 'block' && !walletMenu.contains(event.target) && !walletBtn.contains(event.target)) {
-            walletMenu.style.display = 'none';
-        }
-    });
-</script>

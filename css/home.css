@@ -106,7 +106,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 10px;
     gap: 30px;
 }
 
@@ -125,6 +125,10 @@
     display: flex;
     justify-content: center;
     align-items: center; 
+}
+
+.stats-left {
+    flex: 0 0 450px;
 }
 
 /* Thẻ Giao dịch gần đây */
@@ -173,14 +177,6 @@
 
 .filter-btn:hover {
     background-color: #f0f0f0; 
-}
-
-.stat-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 400px; 
-    margin-bottom: 15px;
 }
 
 /* Số tiền nằm trong border có màu */
