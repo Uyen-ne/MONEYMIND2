@@ -25,7 +25,7 @@
                 
                 <form action="#" method="post">
                     <div class="input-group">
-                        <label for="username">EMAIL/SỐ ĐIỆN THOẠI</label>
+                        <label for="username">EMAIL</label>
                         <input type="text" id="username" name="username" required>
                         <p id="emailError" style="color: red; display: none; font-size: 12px; margin-top: 5px; font-weight: 500;">* Email sai định dạng (Ví dụ: ten@gmail.com)</p>
                     </div>
@@ -50,61 +50,10 @@
         </div>
     </div>
 
-   
-
+    <script src="../js/api.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 </html>
 
 
-<script>
-        document.getElementById('submitBtn').addEventListener('click', function(event) {
-            let hopLe = true; 
-            
-            // Lấy dữ liệu từ ID username và password của bạn
-            const email = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
-            
-            // 1. Kiểm tra Email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                document.getElementById('emailError').style.display = 'block';
-                hopLe = false; 
-            } else {
-                document.getElementById('emailError').style.display = 'none'; 
-            }
 
-            // 2. Kiểm tra Mật khẩu
-            const passRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
-            if (!passRegex.test(pass)) {
-                document.getElementById('passError').style.display = 'block';
-                hopLe = false;
-            } else {
-                document.getElementById('passError').style.display = 'none';
-            }
-            // 3. Xử lý sau khi kiểm tra xong
-            if (!hopLe) {
-                event.preventDefault(); 
-            } else {
-                event.preventDefault(); 
-                window.location.href = "home.html"; 
-            }
-        });
-    </script>
-
-    <script>
-    function togglePassword(inputId, iconId) {
-    const input = document.getElementById(inputId);
-    const icon = document.getElementById(iconId);
-
-    if (input.type === "password") {
-        input.type = "text"; 
-        icon.src = "../assets/icon/eye-open.png"; 
-    } else {
-        input.type = "password"; 
-        icon.src = "../assets/icon/eye-closed.png"; 
-    }
-}
-</script>
-
-</body>
-</html>

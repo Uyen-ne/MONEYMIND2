@@ -178,4 +178,40 @@
     color: #512e5f !important;           
 }
 
+.preset-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
 
+.preset-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 2px solid #eee;
+    background: white;
+    cursor: pointer;
+    font-size: 13px;
+    color: #444;
+    transition: 0.2s;
+}
+
+.preset-btn:hover { border-color: #C9A0F5; background: #fdf5ff; }
+.preset-btn.selected { border-color: #C9A0F5; background: #f5e6ff; }
+
+.source-btn.selected-income {
+    background: #DDF7D3;
+    border-color: #28b463;
+    color: #28b463;
+    font-weight: 600;
+}
+
+.source-btn.selected-expense {
+    background: #FFD6D6;
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+    font-weight: 600;
+}

@@ -19,6 +19,8 @@
     text-align: center;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     animation: zoomIn 0.3s ease;
+    max-height: 85vh;
+    overflow-y: auto;
 }
 
 .modal-card p {
