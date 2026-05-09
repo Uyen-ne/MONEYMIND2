@@ -45,177 +45,91 @@
 
     <section class="category-section">
         <h2 class="section-heading">TIỀN VÀO</h2>
-
-        <div class="category-card bg-pink">
-            <div class="cat-left">
-                <div class="cat-icon">
-                    <img src="../assets/icon/salary.png" alt="Icon" onerror="this.style.display='none'"> 
-                    </div>
-                <span class="cat-name">Tiền lương</span>
-            </div>
-            <div class="cat-right">
-                <button class="action-icon-btn">✎</button>
-                <button class="action-icon-btn">🗑</button>
-            </div>
-        </div>
-
-        <div class="category-card bg-light-green">
-            <div class="cat-left">
-                <div class="cat-icon"><img src="../assets/icon/invest.png" alt="Icon" onerror="this.style.display='none'"></div>
-                <span class="cat-name">Tiền đầu tư</span>
-            </div>
-            <div class="cat-right">
-                <button class="action-icon-btn">✎</button>
-                <button class="action-icon-btn">🗑</button>
-            </div>
-        </div>
-
-        <div class="category-card bg-yellow">
-            <div class="cat-left">
-                <div class="cat-icon"><img src="../assets/icon/bank.png" alt="Icon" onerror="this.style.display='none'"></div>
-                <span class="cat-name">Tiền lãi ngân hàng</span>
-            </div>
-            <div class="cat-right">
-                <button class="action-icon-btn">✎</button>
-                <button class="action-icon-btn">🗑</button>
-            </div>
-        </div>
+        <div id="incomeCategories"></div>
     </section>
 
     <section class="category-section">
         <h2 class="section-heading">TIỀN RA</h2>
-
-        <div class="category-card bg-mint">
-            <div class="cat-left">
-                <div class="cat-icon"><img src="../assets/icon/food.png" alt="Icon" onerror="this.style.display='none'"></div>
-                <span class="cat-name">Tiền ăn uống</span>
-            </div>
-            <div class="cat-right">
-                <button class="action-icon-btn" onclick="showModal('editCategoryModal')">✎</button>
-                <button class="action-icon-btn">🗑</button>
-            </div>
-        </div>
-
-        <div class="category-card bg-blue">
-            <div class="cat-left">
-                <div class="cat-icon"><img src="../assets/icon/water.png" alt="Icon" onerror="this.style.display='none'"></div>
-                <span class="cat-name">Tiền điện nước</span>
-            </div>
-            <div class="cat-right">
-                <button class="action-icon-btn" onclick="showModal('editCategoryModal')">✎</button>
-                <button class="action-icon-btn">🗑</button>
-            </div>
-        </div>
-
-        <div class="category-card bg-light-pink">
-            <div class="cat-left">
-                <div class="cat-icon"><img src="../assets/icon/shopping.png" alt="Icon" onerror="this.style.display='none'"></div>
-                <span class="cat-name">Tiền mua sắm</span>
-            </div>
-            <div class="cat-right">
-                <button class="action-icon-btn" onclick="showModal('editCategoryModal')">✎</button>
-                <button class="action-icon-btn">🗑</button>
-            </div>
-        </div>
+        <div id="expenseCategories"></div>
     </section>
 
+    <!-- MODAL THÊM DANH MỤC -->
     <div class="modal-overlay" id="addCategoryModal">
-    <div class="modal-card form-card">
-        <div class="form-group">
-            <label style="text-transform: uppercase;">Tên danh mục</label>
-            <input type="text" class="form-input" placeholder="Nhập tên danh mục" />
-        </div>
-
-        <div class="form-group">
-            <label style="text-transform: uppercase;">Phân loại</label>
-           <div class="icon-selector-row">
-              <button class="icon-box">
-                 <img src="../assets/icon/food.png" alt="Ăn uống" onerror="this.style.display='none'">
-              </button>
-    
-             <button class="icon-box">
-                  <img src="../assets/icon/home.png" alt="Nhà cửa" onerror="this.style.display='none'">
-            </button>
-    
-            <button class="icon-box">
-                 <img src="../assets/icon/water.png" alt="Điện nước" onerror="this.style.display='none'">
-            </button>
-    
-            <button class="icon-box">
-                <img src="../assets/icon/shopping.png" alt="Mua sắm" onerror="this.style.display='none'">
-            </button>
-    
-            <button class="icon-box">
-                <img src="../assets/icon/beauty.png" alt="Làm đẹp" onerror="this.style.display='none'">
-            </button>
-    
-            <button class="icon-box">...</button>
-</div>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">NGUỒN TIỀN</label>
-            <div class="source-btn-group">
-            <button type="button" class="btn-source" id="btnIncome">TIỀN VÀO</button>
-            <button type="button" class="btn-source" id="btnExpense">TIỀN RA</button>
+        <div class="modal-card form-card">
+            <div class="form-group">
+                <label>CHỌN DANH MỤC</label>
+                <div class="preset-grid" id="presetGrid"></div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label style="text-transform: uppercase;">Màu sắc</label>
-            <div class="color-selector-row">
-                <div class="color-circle" style="background-color: #FFD6D6;"></div>
-                <div class="color-circle" style="background-color: #FEF7CC;"></div>
-                <div class="color-circle" style="background-color: #DDF7D3;"></div>
-                <div class="color-circle" style="background-color: #D5FAFA;"></div>
-                <div class="color-circle" style="background-color: #DFD3FB;"></div>
-                <div class="color-circle" style="background-color: #FBD3E9;"></div>
+            <div class="form-group">
+                <label>TẠO DANH MỤC</label>
+                <input type="text" class="form-input" id="catName" placeholder="Nhập tên danh mục khác...">
             </div>
-        </div>
 
-        <div class="modal-btns mt-30">
-            <button class="btn-form-cancel" onclick="closeModal('addCategoryModal')">HỦY</button>
-            <button class="btn-form-apply">LƯU</button>
+            <div class="form-group">
+                <label class="form-label">NGUỒN TIỀN</label>
+                <div class="source-btn-group">
+                    <button type="button" class="btn-source" id="btnIncome" onclick="selectCatType('income', this)">TIỀN VÀO</button>
+                    <button type="button" class="btn-source" id="btnExpense" onclick="selectCatType('expense', this)">TIỀN RA</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>MÀU SẮC</label>
+                <div class="color-selector-row">
+                    <div class="color-circle" style="background-color:#FFD6D6;" onclick="selectColor('#FFD6D6', this)"></div>
+                    <div class="color-circle" style="background-color:#FEF7CC;" onclick="selectColor('#FEF7CC', this)"></div>
+                    <div class="color-circle" style="background-color:#DDF7D3;" onclick="selectColor('#DDF7D3', this)"></div>
+                    <div class="color-circle" style="background-color:#D5FAFA;" onclick="selectColor('#D5FAFA', this)"></div>
+                    <div class="color-circle" style="background-color:#DFD3FB;" onclick="selectColor('#DFD3FB', this)"></div>
+                    <div class="color-circle" style="background-color:#FBD3E9;" onclick="selectColor('#FBD3E9', this)"></div>
+                </div>
+            </div>
+
+            <div class="modal-btns mt-30">
+                <button class="btn-form-cancel" onclick="closeModal('addCategoryModal')">HỦY</button>
+                <button class="btn-form-apply" onclick="addCategory()">LƯU</button>
+            </div>
         </div>
     </div>
-</div>
 
+    <!-- MODAL SỬA DANH MỤC -->
+    <div class="modal-overlay" id="editCategoryModal">
+        <div class="modal-card form-card">
+            
+            <!-- Input ẩn để lưu ID của danh mục đang sửa -->
+            <input type="hidden" id="editCatId">
 
+            <div class="form-group">
+                <label>TÊN DANH MỤC</label>
+                <input type="text" class="form-input" id="editCatName" placeholder="Nhập tên danh mục...">
+            </div>
 
+            <div class="form-group">
+                <label>MÀU SẮC</label>
+                <div class="color-selector-row">
+                    <div class="color-circle" style="background-color:#FFD6D6;" onclick="selectEditColor('#FFD6D6', this)"></div>
+                    <div class="color-circle" style="background-color:#FEF7CC;" onclick="selectEditColor('#FEF7CC', this)"></div>
+                    <div class="color-circle" style="background-color:#DDF7D3;" onclick="selectEditColor('#DDF7D3', this)"></div>
+                    <div class="color-circle" style="background-color:#D5FAFA;" onclick="selectEditColor('#D5FAFA', this)"></div>
+                    <div class="color-circle" style="background-color:#DFD3FB;" onclick="selectEditColor('#DFD3FB', this)"></div>
+                    <div class="color-circle" style="background-color:#FBD3E9;" onclick="selectEditColor('#FBD3E9', this)"></div>
+                </div>
+            </div>
+
+            <div class="modal-btns mt-30">
+                <button class="btn-form-cancel" onclick="closeModal('editCategoryModal')">HỦY</button>
+                <button class="btn-form-apply" onclick="updateCategory()">LƯU</button>
+            </div>
+        </div>
+    </div>
 </main>
 
-   <script src="../js/model.js"></script> 
-   <script src="../js/global-menu.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/model.js"></script>
+    <script src="../js/global-menu.js"></script>
+    <script src="../js/category.js"></script>
 
 </body>
 </html>
 
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const btnIncome = document.getElementById('btnIncome');
-    const btnExpense = document.getElementById('btnExpense');
-
-    if (btnIncome && btnExpense) {
-        btnIncome.addEventListener('click', function() {
-            if (this.classList.contains('active-income')) {
-                this.classList.remove('active-income');
-            } else {
-                this.classList.add('active-income');
-                btnExpense.classList.remove('active-expense');
-            }
-        });
-
-        btnExpense.addEventListener('click', function() {
-            if (this.classList.contains('active-expense')) {
-                this.classList.remove('active-expense');
-            } else {
-              
-                this.classList.add('active-expense');
-                btnIncome.classList.remove('active-income');
-            }
-        });
-    }
-});
-    </script>
-</body>
-</html>

@@ -15,173 +15,223 @@
 
 <body>
     <nav class="navbar">
-    <div class="logo">
-         <a href="home.html" style="text-decoration: none; display: flex; align-items: center; color: inherit;">
-        <img src="../assets/icon/logo.png" alt="MoneyMind">
-        <span>MoneyMind</span>
-        </a>
-    </div>
-
-    <div class="nav-right-group">
-        <ul class="nav-links">
-           <li><a href="category.html">Danh mục</a></li>
-            <li><a href="transaction.html">Giao dịch</a></li>
-            <li><a href="goal.html">Mục tiêu</a></li>
-            <li><a href="wallet.html" class="active-link">Ví của tôi</a></li>
-        </ul>
-        
-        <div class="nav-icons">
-            <img src="../assets/icon/bell.png" alt="Notification" class="icon">
-            <img src="../assets/icon/avatar.png" alt="User" class="avatar-img">
-        </div>  
-    </div>
+        <div class="logo">
+            <a href="home.html" style="text-decoration: none; display: flex; align-items: center; color: inherit;">
+                <img src="../assets/icon/logo.png" alt="MoneyMind">
+                <span>MoneyMind</span>
+            </a>
+        </div>
+        <div class="nav-right-group">
+            <ul class="nav-links">
+                <li><a href="category.html">Danh mục</a></li>
+                <li><a href="transaction.html">Giao dịch</a></li>
+                <li><a href="goal.html">Mục tiêu</a></li>
+                <li><a href="wallet.html" class="active-link">Ví của tôi</a></li>
+            </ul>
+            <div class="nav-icons">
+                <img src="../assets/icon/bell.png" alt="Notification" class="icon">
+                <img src="../assets/icon/avatar.png" alt="User" class="avatar-img">
+            </div>
+        </div>
     </nav>
 
     <main class="wallet-container">
-    <h1>VÍ CỦA TÔI</h1>
+        <h1>VÍ CỦA TÔI</h1>
 
-    <div class="container">
-        <header class="header-card">
-            <div class="balance-info">
-                <div class="user-avatar-container">
-                     <img src="../assets/icon/avatar.png" alt="Avatar" class="user-avatar-img">
-                 </div>
-             <div>
-        <p>Số dư hiện tại</p>
-        <h2>200.000.000 đ</h2>
-    </div>
-</div>
-            <div class="alert-info">
-                <p>Chi tiêu tháng 4 này đã <span class="highlight">tăng 50%</span> so với tháng 3 trước!</p>
-            </div>
-        </header>
-
-        <section class="wallet-section" style="margin-top: 30px; margin-bottom: 30px ;" >
-            <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h2>Ví hiện tại</h2>
-                <button class="add-wallet-btn" onclick="showModal('addWalletModal')" style="padding: 8px 15px; border-radius: 8px; border: none; background-color: #28b463; color: white; cursor: pointer; font-weight: bold;">+ Thêm ví</button> 
-            </div>
-           <!-- DANH SÁCH VÍ  -->
-                <div class="wallet-list-container" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-
-                    <!-- Item Ví 1 -->
-                    <div class="wallet-item" style="display: flex; justify-content: space-between; align-items: center; background-color: #e6e6e6; padding: 15px 20px; border-radius: 12px;">
-                        
-                        <!-- Cột trái: Tên & Số tiền -->
-                        <div class="wallet-info" style="display: flex; flex-direction: column; gap: 5px; text-align: left;">
-                            <span style="font-weight: bold; font-size: 16px; color: #333;">Tiền mặt</span>
-                            <span style="font-size: 15px; color: #555;">Số dư: <b>100.000 vnđ</b></span>
-                        </div>
-
-                        <!-- Cột phải: 2 Nút Sửa / Xóa -->
-                        <div class="wallet-actions" style="display: flex; gap: 10px;">
-                            <button class="edit-btn" onclick="showModal('editWalletModal')" style="padding: 8px 12px; border-radius: 8px; border: 1px solid #ccc; background: white; cursor: pointer; display: flex; align-items: center; gap: 5px; font-family: inherit;">
-                                ✏️ Sửa
-                            </button>
-                            <button class="delete-btn" style="padding: 8px 12px; border-radius: 8px; border: 1px solid #ccc; background: white; cursor: pointer; display: flex; align-items: center; gap: 5px; color: #d32f2f; font-family: inherit;">
-                                🗑️ Xóa
-                            </button>
-                        </div>
+        <div class="container">
+            <header class="header-card">
+                <div class="balance-info">
+                    <div class="user-avatar-container">
+                        <img src="../assets/icon/avatar.png" alt="Avatar" class="user-avatar-img">
                     </div>
-
-                    <!-- Item Ví 2 -->
-                    <div class="wallet-item" style="display: flex; justify-content: space-between; align-items: center; background-color: #e6e6e6; padding: 15px 20px; border-radius: 12px;">
-                        <div class="wallet-info" style="display: flex; flex-direction: column; gap: 5px; text-align: left;">
-                            <!-- Hiển thị gộp tên Ngân hàng vào đây luôn -->
-                            <span style="font-weight: bold; font-size: 16px; color: #333;">BIDV</span>
-                            <span style="font-size: 15px; color: #555;">Số dư: <b>100.000 vnđ</b></span>
-                        </div>
-                        <div class="wallet-actions" style="display: flex; gap: 10px;">
-                            <button class="edit-btn" onclick="showModal('editWalletModal')" style="padding: 8px 12px; border-radius: 8px; border: 1px solid #ccc; background: white; cursor: pointer; display: flex; align-items: center; gap: 5px; font-family: inherit;">
-                                ✏️ Sửa
-                            </button>
-                            <button class="delete-btn" style="padding: 8px 12px; border-radius: 8px; border: 1px solid #ccc; background: white; cursor: pointer; display: flex; align-items: center; gap: 5px; color: #d32f2f; font-family: inherit;">
-                                🗑️ Xóa
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Item Ví 3 -->
-                    <div class="wallet-item" style="display: flex; justify-content: space-between; align-items: center; background-color: #e6e6e6; padding: 15px 20px; border-radius: 12px;">
-                        <div class="wallet-info" style="display: flex; flex-direction: column; gap: 5px; text-align: left;">
-                            <span style="font-weight: bold; font-size: 16px; color: #333;">MOMO</span>
-                            <span style="font-size: 15px; color: #555;">Số dư: <b>100.000 vnđ</b></span>
-                        </div>
-                        <div class="wallet-actions" style="display: flex; gap: 10px;">
-                            <button class="edit-btn" onclick="showModal('editWalletModal')" style="padding: 8px 12px; border-radius: 8px; border: 1px solid #ccc; background: white; cursor: pointer; display: flex; align-items: center; gap: 5px; font-family: inherit;">
-                                ✏️ Sửa
-                            </button>
-                            <button class="delete-btn" style="padding: 8px 12px; border-radius: 8px; border: 1px solid #ccc; background: white; cursor: pointer; display: flex; align-items: center; gap: 5px; color: #d32f2f; font-family: inherit;">
-                                🗑️ Xóa
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                        <!-- MODAL THÊM VÍ -->
-          
-                <div id="addWalletModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 9999;">
-                    
-                    <!-- Khung trắng chứa nội dung căn giữa tuyệt đối -->
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 25px; border-radius: 12px; width: 90%; max-width: 400px; box-sizing: border-box; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-                        
-                        <h3 style="margin: 0 0 20px 0; text-align: center; font-size: 20px; color: #333;">Thêm ví mới</h3>
-                        
-                        <!-- Ô nhập Tên ví (Ép hiển thị dọc) -->
-                        <div style="margin-bottom: 15px; display: block; text-align: left;">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Tên ví</label>
-                            <input type="text" id="new-wallet-name" placeholder="VD: Tiền mặt, Vietcombank, Momo..." style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; font-family: inherit; display: block;" />
-                        </div>
-
-                        <!-- Ô nhập Số tiền (Đã đổi sang kiểu số và bước nhảy 1000) -->
-                        <div style="margin-bottom: 25px; display: block; text-align: left;">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Số tiền</label>
-                            <input type="number" step="1000" id="new-wallet-amount" placeholder="Nhập số dư ban đầu (VNĐ)" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; font-family: inherit; display: block;" />
-                        </div>
-
-                        <!-- Các nút hành động (Dàn ngang đều nhau) -->
-                        <div style="display: flex; gap: 10px;">
-                            <button onclick="hideModal('addWalletModal')" style="flex: 1; padding: 12px; border-radius: 8px; border: none; background: #eee; cursor: pointer; font-weight: bold; color: #333;">HỦY</button>
-                            <button onclick="hideModal('addWalletModal')" style="flex: 1; padding: 12px; border-radius: 8px; border: none; background: #f39c12; color: white; cursor: pointer; font-weight: bold;">LƯU</button>
-                        </div>
-                        
+                    <div>
+                        <p>Số dư hiện tại</p>
+                        <h2 id="totalBalance">0 đ</h2>
                     </div>
                 </div>
+            </header>
 
-                </div>
-            </div>
-        </section>
-
-        <!-- MODAL CHỈNH SỬA VÍ -->
-        <div id="editWalletModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); z-index: 9999;">
-            
-            <!-- Khung trắng chứa nội dung căn giữa tuyệt đối -->
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 25px; border-radius: 12px; width: 90%; max-width: 400px; box-sizing: border-box; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-                
-                <h3 style="margin: 0 0 20px 0; text-align: center; font-size: 20px; color: #333;">Chỉnh sửa ví</h3>
-                
-                <!-- Ô nhập Tên ví (Để trống chờ Backend) -->
-                <div style="margin-bottom: 15px; display: block; text-align: left;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Tên ví</label>
-                    <input type="text" id="edit-wallet-name" placeholder="Dữ liệu sẽ load ở đây..." style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; font-family: inherit; display: block;" />
+            <section class="wallet-section" style="margin-top:30px; margin-bottom:30px;">
+                <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                    <h2>Ví hiện tại</h2>
+                    <button class="add-wallet-btn" onclick="showModal('addWalletModal')" style="padding:8px 15px; border-radius:8px; border:none; background-color:#28b463; color:white; cursor:pointer; font-weight:bold;">+ Thêm ví</button>
                 </div>
 
-                <!-- Ô nhập Số tiền (Để trống chờ Backend) -->
-                <div style="margin-bottom: 25px; display: block; text-align: left;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Số tiền</label>
-                    <input type="number" step="1000" id="edit-wallet-amount" placeholder="Số tiền sẽ load ở đây..." style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; font-family: inherit; display: block;" />
+                <!-- Danh sách ví render từ JS -->
+                <div id="walletList" style="display:flex; flex-direction:column; gap:15px; margin-top:20px;"></div>
+
+                <!-- MODAL THÊM VÍ -->
+                <div class="modal-overlay" id="addWalletModal">
+                    <div class="wallet-modal-card">
+                        <!-- Bước 1: Chọn loại ví -->
+                        <div id="step1">
+                            <h3 class="wallet-modal-title">Thêm ví mới</h3>
+                            <p class="wallet-modal-sub">Chọn loại ví bạn muốn thêm</p>
+                            <div class="wallet-type-list">
+                                <button class="wallet-type-btn" onclick="selectWalletType('cash')">
+                                    <span class="wallet-type-icon cash-icon">💵</span>
+                                    <span>Tiền mặt</span>
+                                </button>
+                                <button class="wallet-type-btn" onclick="selectWalletType('bank')">
+                                    <span class="wallet-type-icon bank-icon">🏦</span>
+                                    <span>Ngân hàng</span>
+                                </button>
+                                <button class="wallet-type-btn" onclick="selectWalletType('ewallet')">
+                                    <span class="wallet-type-icon ew-icon">📱</span>
+                                    <span>Ví điện tử</span>
+                                </button>
+                            </div>
+                            <button class="wallet-cancel-btn" onclick="closeModal('addWalletModal')">Hủy</button>
+                        </div>
+
+                        <!-- Bước 2a: Tiền mặt -->
+                        <div id="step-cash" style="display:none;">
+                            <button class="wallet-back-btn" onclick="backToStep1()">← Quay lại</button>
+                            <h3 class="wallet-modal-title">Tiền mặt</h3>
+                            <div class="wallet-form-group">
+                                <label>Số dư ban đầu</label>
+                                <input type="number" id="cash-balance" class="wallet-input" placeholder="Nhập số tiền (VNĐ)">
+                            </div>
+                            <button class="wallet-confirm-btn" onclick="confirmAddWallet()">Xác nhận</button>
+                        </div>
+
+                        <!-- Bước 2b: Ngân hàng -->
+                        <div id="step-bank" style="display:none;">
+                            <button class="wallet-back-btn" onclick="backToStep1()">← Quay lại</button>
+                            <h3 class="wallet-modal-title">Chọn ngân hàng</h3>
+                            <div class="provider-list">
+                                <button class="provider-btn" onclick="selectProvider(this)">
+                                    <img src="https://api.vietqr.io/img/VCB.png" alt="VCB" class="bank-logo">Vietcombank
+                                </button>
+                                <button class="provider-btn" onclick="selectProvider(this)">
+                                    <img src="https://api.vietqr.io/img/BIDV.png" alt="BIDV" class="bank-logo">BIDV
+                                </button>
+                                <button class="provider-btn" onclick="selectProvider(this)">
+                                    <img src="https://api.vietqr.io/img/TCB.png" alt="TCB" class="bank-logo">Techcombank
+                                </button>
+                                <button class="provider-btn" onclick="selectProvider(this)">
+                                    <img src="https://api.vietqr.io/img/ACB.png" alt="ACB" class="bank-logo">ACB
+                                </button>
+                                <button class="provider-btn" onclick="selectProvider(this)">
+                                    <img src="https://api.vietqr.io/img/MB.png" alt="MB" class="bank-logo">MB Bank
+                                </button>
+                                <button class="provider-btn" onclick="selectProvider(this)">
+                                    <img src="https://api.vietqr.io/img/VPB.png" alt="VPB" class="bank-logo">VPBank
+                                </button>
+                                <button class="provider-btn" onclick="selectProvider(this)">
+                                    <img src="https://api.vietqr.io/img/TPB.png" alt="TPB" class="bank-logo">TPBank
+                                </button>
+                            </div>
+                            <div class="wallet-form-group" style="margin-top:16px;">
+                                <label>Số tài khoản</label>
+                                <input type="text" id="bank-account" class="wallet-input" placeholder="Nhập số tài khoản">
+                            </div>
+                            <div class="wallet-form-group">
+                                <label>Số dư ban đầu</label>
+                                <input type="number" id="bank-balance" class="wallet-input" placeholder="Nhập số tiền (VNĐ)">
+                            </div>
+                            <button class="wallet-confirm-btn" onclick="confirmAddWallet()">Xác nhận</button>
+                        </div>
+
+                        <!-- Bước 2c: Ví điện tử -->
+                        <div id="step-ewallet" style="display:none;">
+                            <button class="wallet-back-btn" onclick="backToStep1()">← Quay lại</button>
+                            <h3 class="wallet-modal-title">Chọn ví điện tử</h3>
+                            <div class="provider-list">
+                                <button class="provider-btn" onclick="selectProvider(this)">
+                                    <img src="https://developers.momo.vn/v3/assets/images/MOMO-Logo-App-6262c3743a290ef02396a24ea2b66c35.png" alt="MoMo" class="bank-logo">MoMo
+                                </button>
+                                <button class="provider-btn" onclick="selectProvider(this)">
+                                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ZaloPay-Square.png" alt="ZaloPay" class="bank-logo">ZaloPay
+                                </button>
+                                <button class="provider-btn" onclick="selectProvider(this)">
+                                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-VNPAY-QR-1.png" alt="VNPay" class="bank-logo">VNPay
+                                </button>
+                                <button class="provider-btn" onclick="selectProvider(this)">
+                                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ShopeePay-V.png" alt="ShopeePay" class="bank-logo">ShopeePay
+                                </button>
+                            </div>
+                            <div class="wallet-form-group" style="margin-top:16px;">
+                                <label>Số tài khoản / SĐT</label>
+                                <input type="text" id="ew-account" class="wallet-input" placeholder="Nhập số điện thoại liên kết">
+                            </div>
+                            <div class="wallet-form-group">
+                                <label>Số dư ban đầu</label>
+                                <input type="number" id="ew-balance" class="wallet-input" placeholder="Nhập số tiền (VNĐ)">
+                            </div>
+                            <button class="wallet-confirm-btn" onclick="confirmAddWallet()">Xác nhận</button>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Các nút hành động (Dàn ngang đều nhau) -->
-                <div style="display: flex; gap: 10px;">
-                    <button onclick="hideModal('editWalletModal')" style="flex: 1; padding: 12px; border-radius: 8px; border: none; background: #eee; cursor: pointer; font-weight: bold; color: #333;">HỦY</button>
-                    <button onclick="hideModal('editWalletModal')" style="flex: 1; padding: 12px; border-radius: 8px; border: none; background: #f39c12; color: white; cursor: pointer; font-weight: bold;">CẬP NHẬT</button>
+                <!-- MODAL SỬA VÍ -->
+                <div class="modal-overlay" id="editWalletModal" style="display: none;">
+                    <div class="modal-card form-card">
+                        
+                        <input type="hidden" id="editWalletId">
+
+                        <!-- STEP SỬA NGÂN HÀNG -->
+                        <div id="edit-step-bank" style="display:none;">
+                            <h3 class="wallet-modal-title">Sửa thông tin ngân hàng</h3>
+                            <div class="provider-list">
+                                <button class="provider-btn" onclick="selectEditProvider(this)"><img src="https://api.vietqr.io/img/VCB.png" alt="VCB" class="bank-logo">Vietcombank</button>
+                                <button class="provider-btn" onclick="selectEditProvider(this)"><img src="https://api.vietqr.io/img/BIDV.png" alt="BIDV" class="bank-logo">BIDV</button>
+                                <button class="provider-btn" onclick="selectEditProvider(this)"><img src="https://api.vietqr.io/img/TCB.png" alt="TCB" class="bank-logo">Techcombank</button>
+                                <button class="provider-btn" onclick="selectEditProvider(this)"><img src="https://api.vietqr.io/img/ACB.png" alt="ACB" class="bank-logo">ACB</button>
+                                <button class="provider-btn" onclick="selectEditProvider(this)"><img src="https://api.vietqr.io/img/MB.png" alt="MB" class="bank-logo">MB Bank</button>
+                                <button class="provider-btn" onclick="selectEditProvider(this)"><img src="https://api.vietqr.io/img/VPB.png" alt="VPB" class="bank-logo">VPBank</button>
+                                <button class="provider-btn" onclick="selectEditProvider(this)"><img src="https://api.vietqr.io/img/TPB.png" alt="TPB" class="bank-logo">TPBank</button>
+                            </div>
+                            <div class="wallet-form-group" style="margin-top:16px;">
+                                <label>Số tài khoản</label>
+                                <input type="text" id="edit-bank-account" class="wallet-input" placeholder="Nhập số tài khoản">
+                            </div>
+                            <div class="wallet-form-group">
+                                <label>Số dư hiện tại</label>
+                                <input type="number" id="edit-bank-balance" class="wallet-input" placeholder="Nhập số tiền (VNĐ)">
+                            </div>
+                        </div>
+
+                        <!-- STEP SỬA VÍ ĐIỆN TỬ -->
+                        <div id="edit-step-ewallet" style="display:none;">
+                            <h3 class="wallet-modal-title">Sửa thông tin ví điện tử</h3>
+                            <div class="provider-list">
+                                <button class="provider-btn" onclick="selectEditProvider(this)"><img src="https://developers.momo.vn/v3/assets/images/MOMO-Logo-App-6262c3743a290ef02396a24ea2b66c35.png" alt="MoMo" class="bank-logo">MoMo</button>
+                                <button class="provider-btn" onclick="selectEditProvider(this)"><img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ZaloPay-Square.png" alt="ZaloPay" class="bank-logo">ZaloPay</button>
+                                <button class="provider-btn" onclick="selectEditProvider(this)"><img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-VNPAY-QR-1.png" alt="VNPay" class="bank-logo">VNPay</button>
+                                <button class="provider-btn" onclick="selectEditProvider(this)"><img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ShopeePay-V.png" alt="ShopeePay" class="bank-logo">ShopeePay</button>
+                            </div>
+                            <div class="wallet-form-group" style="margin-top:16px;">
+                                <label>Số tài khoản / SĐT</label>
+                                <input type="text" id="edit-ew-account" class="wallet-input" placeholder="Nhập số điện thoại">
+                            </div>
+                            <div class="wallet-form-group">
+                                <label>Số dư hiện tại</label>
+                                <input type="number" id="edit-ew-balance" class="wallet-input" placeholder="Nhập số tiền (VNĐ)">
+                            </div>
+                        </div>
+
+                        <!-- STEP SỬA TIỀN MẶT -->
+                        <div id="edit-step-cash" style="display:none;">
+                            <h3 class="wallet-modal-title">Sửa số dư tiền mặt</h3>
+                            <div class="wallet-form-group">
+                                <label>Số dư hiện tại</label>
+                                <input type="number" id="edit-cash-balance" class="wallet-input" placeholder="Nhập số tiền (VNĐ)">
+                            </div>
+                        </div>
+
+                        <div class="modal-btns mt-30">
+                            <button class="btn-form-cancel" onclick="closeModal('editWalletModal')">HỦY</button>
+                            <button class="btn-form-apply" onclick="confirmUpdateWallet()">XÁC NHẬN</button>
+                        </div>
+                    </div>
                 </div>
-                
-            </div>
+            </section>
         </div>
     </main>
 
+    <script src="../js/api.js"></script>
+    <script src="../js/model.js"></script>
     <script src="../js/global-menu.js"></script>
     <script src="../js/wallet.js"></script>
 </body>

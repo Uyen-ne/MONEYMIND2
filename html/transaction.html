@@ -8,307 +8,207 @@
     <link rel="stylesheet" href="../css/transaction.css">
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/modal.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-   <nav class="navbar">
-    <div class="logo">
-         <a href="home.html" style="text-decoration: none; display: flex; align-items: center; color: inherit;">
-        <img src="../assets/icon/logo.png" alt="MoneyMind">
-        <span>MoneyMind</span>
-        </a>
-    </div>
-
-    <div class="nav-right-group">
-        <ul class="nav-links">
-            <li><a href="category.html">Danh mục</a></li>
-            <li><a href="transaction.html" class="active-link">Giao dịch</a></li> 
-            <li><a href="goal.html">Mục tiêu</a></li>
-            <li><a href="wallet.html">Ví của tôi</a></li>
-        </ul>
-        
-        <div class="nav-icons">
-            <img src="../assets/icon/bell.png" alt="Notification" class="icon">
-            <img src="../assets/icon/avatar.png" alt="User" class="avatar-img">
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.html" style="text-decoration: none; display: flex; align-items: center; color: inherit;">
+                <img src="../assets/icon/logo.png" alt="MoneyMind">
+                <span>MoneyMind</span>
+            </a>
         </div>
-    </div>
+        <div class="nav-right-group">
+            <ul class="nav-links">
+                <li><a href="category.html">Danh mục</a></li>
+                <li><a href="transaction.html" class="active-link">Giao dịch</a></li>
+                <li><a href="goal.html">Mục tiêu</a></li>
+                <li><a href="wallet.html">Ví của tôi</a></li>
+            </ul>
+            <div class="nav-icons">
+                <img src="../assets/icon/bell.png" alt="Notification" class="icon">
+                <img src="../assets/icon/avatar.png" alt="User" class="avatar-img">
+            </div>
+        </div>
     </nav>
 
     <main class="transaction-container">
-    <h1>GIAO DỊCH</h1>
+        <h1>GIAO DỊCH</h1>
 
-    <div class="search-box">
-        <img src="../assets/icon/search.png" alt="Search" class="search-icon">
-        <input type="text" class="search-input" placeholder="Tìm kiếm">
-    </div>
+        <div class="search-box">
+            <img src="../assets/icon/search.png" alt="Search" class="search-icon">
+            <input type="text" class="search-input" id="searchInput" placeholder="Tìm kiếm">
+        </div>
 
-    <div class="action-bar">
-        <button class="btn-pill" onclick="showModal('addTransaction')">Thêm giao dịch</button>
-        <button class="btn-pill" onclick="showModal('filterTransaction')">Bộ lọc</button>
-    </div>
+        <div class="action-bar">
+            <button class="btn-pill" onclick="showModal('addTransaction')">Thêm giao dịch</button>
+            <button class="btn-pill" onclick="showModal('filterTransaction')">Bộ lọc</button>
+        </div>
 
+        <div class="filter-all-row">
+            <button class="btn-pill small" onclick="filterByType('all')">Tất cả</button>
+            <button class="btn-pill small" onclick="filterByType('income')">Tiền vào</button>
+            <button class="btn-pill small" onclick="filterByType('expense')">Tiền ra</button>
+        </div>
 
-    <section class="transaction-section">
-        <h2 class="section-title">Tiền vào</h2>
-        
-        <!-- Giao dịch 1 -->
-        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-            <div class="transaction-card" style="flex: 1; margin-bottom: 0;">
-                <div class="card-info">
-                    <p class="date">Ngày 20/3/2026</p>
-                    <p class="desc">NHAUYEN Chuyển khoản 500.000vnd Sinh nhat zui ze</p>
-                    <p class="balance">Số dư tài khoản: 100.000.000 vnđ</p>
+        <div id="incomeSection">
+            <section class="transaction-section">
+                <h2 class="section-title">Tiền vào</h2>
+                <div id="incomeList"></div>
+            </section>
+        </div>
+
+        <div id="expenseSection">
+            <section class="transaction-section">
+                <h2 class="section-title">Tiền ra</h2>
+                <div id="expenseList"></div>
+            </section>
+        </div>
+
+        <!-- THÊM GIAO DỊCH -->
+        <div class="modal-overlay" id="addTransaction">
+            <div class="modal-card form-card">
+                <h2 class="form-title">Thêm giao dịch</h2>
+
+                <div class="form-group">
+                    <label>Loại giao dịch</label>
+                    <div class="grid-options">
+                        <button class="opt-select" onclick="selectType('income', this)">Tiền vào</button>
+                        <button class="opt-select" onclick="selectType('expense', this)">Tiền ra</button>
+                    </div>
                 </div>
-                <button class="tag-btn pink-light">Quà tặng</button>
-            </div>
-            <!-- Nút bấm -->
-            <div style="display: flex; gap: 10px; flex-shrink: 0;">
-                <button onclick="showModal('editTransaction')" style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #555; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">✎</button>
-                <button style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #d32f2f; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">🗑</button>
-            </div>
-        </div>
 
-        <!-- Giao dịch 2 -->
-        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-            <div class="transaction-card" style="flex: 1; margin-bottom: 0;">
-                <div class="card-info">
-                    <p class="date">Ngày 20/3/2026</p>
-                    <p class="desc">NHAUYEN Chuyển khoản 500.000vnd Tiền sinh hoạt</p>
-                    <p class="balance">Số dư tài khoản: 100.000.000 vnđ</p>
+                <div class="form-group">
+                    <label>Chọn thời gian</label>
+                    <input type="date" class="form-input" id="txDate">
                 </div>
-                <button class="tag-btn green-light">Định kỳ</button>
-            </div>
-            <!-- Nút bấm -->
-            <div style="display: flex; gap: 10px; flex-shrink: 0;">
-                <button onclick="showModal('editTransaction')" style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #555; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">✎</button>
-                <button style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #d32f2f; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">🗑</button>
-            </div>
-        </div>
-    </section>
 
-    <section class="transaction-section">
-        <h2 class="section-title">Tiền ra</h2>
-        
-        <!-- Giao dịch 3 -->
-        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-            <div class="transaction-card" style="flex: 1; margin-bottom: 0;">
-                <div class="card-info">
-                    <p class="date">Ngày 20/3/2026</p>
-                    <p class="desc">Đi chợ</p>
-                    <p class="balance">Số dư tài khoản: 100.000.000 vnđ</p>
+                <div class="form-group">
+                    <label>Chọn ví</label>
+                    <select class="form-input" id="txWallet" style="appearance: auto; cursor: pointer;">
+                        <option value="">-- Chọn ví --</option>
+                    </select>
                 </div>
-                <button class="tag-btn blue-light">Ăn uống</button>
-            </div>
-            <!-- Nút bấm -->
-            <div style="display: flex; gap: 10px; flex-shrink: 0;">
-                <button onclick="showModal('editTransaction')" style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #555; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">✎</button>
-                <button style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #ccc; background: white; font-size: 20px; color: #d32f2f; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 0;">🗑</button>
-            </div>
-        </div>
-    </section>
 
-    <!-- THÊM GIAO DỊCH -->
-    <div class="modal-overlay" id="addTransaction">
-    <div class="modal-card form-card">
-        <h2 class="form-title">Thêm giao dịch</h2>
+                <div class="form-group">
+                    <label>Danh mục</label>
+                    <select class="form-input" id="txCategory" style="appearance: auto; cursor: pointer;">
+                        <option value="">-- Chọn danh mục --</option>
+                    </select>
+                </div>
 
-        <div class="form-group">
-            <label>Chọn thời gian</label>
-            <input type="date" class="form-input" /> 
-        </div>
+                <div class="form-group">
+                    <label>Số tiền</label>
+                    <input type="number" placeholder="Nhập số tiền" class="form-input" id="txAmount">
+                </div>
 
-        <div class="form-group">
-            <label>Chọn tài khoản/thẻ</label>
-            <div class="grid-options">
-                <button class="opt-select">Tiền mặt</button>
-                <button class="opt-select">Ví điện tử</button>
-                <button class="opt-select">Ngân hàng</button>
-                <button class="opt-select">Thẻ quốc tế</button>
-                <button class="opt-select">Thẻ tín dụng</button>
-                <button class="opt-select">...</button>
-            </div>
-        </div>
+                <div class="form-group">
+                    <label>Ghi chú</label>
+                    <textarea class="form-input" id="txDesc" rows="2" placeholder="Nhập ghi chú..."></textarea>
+                </div>
 
-        <div class="form-group">
-            <label>Theo danh mục</label>
-            <div class="grid-options">
-                <button class="opt-select">Tất cả</button>
-                <button class="opt-select">Mua sắm</button>
-                <button class="opt-select">Điện nước</button>
-                <button class="opt-select">Hóa đơn</button>
-                <button class="opt-select">Giải trí</button>
-                <button class="opt-select">...</button>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Theo số tiền</label>
-            <input type="text" placeholder="Nhập số tiền" class="form-input" />
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">Ghi chú</label>
-            <textarea class="form-input" rows="2" placeholder="Nhập ghi chú cho giao dịch này..."></textarea>
-        </div>
-
-        <div class="modal-btns">
-            <button class="btn-form-cancel" onclick="closeModal('addTransaction')">HỦY</button>
-            <button class="btn-form-apply">THÊM/LƯU</button>
-        </div>
-    </div>
-</div>
-
-    <!-- BỘ LỌC -->
-     <div class="modal-overlay" id="filterTransaction">
-    <div class="modal-card form-card filter-card">
-        
-        <div class="filter-header">
-            <h2 class="form-title mb-0">Bộ lọc Lịch sử giao dịch</h2>
-        </div>
-
-        <div class="filter-body">
-            <div class="form-group">
-                <label>Theo thời gian</label>
-                <div class="grid-options">
-                    <button class="opt-select">Tất cả</button>
-                    <button class="opt-select">Tháng 4/2026</button>
-                    <button class="opt-select">Tháng 3/2026</button>
-                    <button class="opt-select">Tháng 2/2026</button>
-                    <button class="opt-select">Tháng 1/2026</button>
-                    <button class="opt-select">...</button>
+                <div class="modal-btns">
+                    <button class="btn-form-cancel" onclick="closeModal('addTransaction')">HỦY</button>
+                    <button class="btn-form-apply" onclick="addTransaction()">LƯU</button>
                 </div>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label>Theo tài khoản/thẻ</label>
-                <div class="grid-options">
-                    <button class="opt-select">Tất cả</button>
-                    <button class="opt-select">Ví điện tử</button>
-                    <button class="opt-select">Ngân hàng</button>
-                    <button class="opt-select">Thẻ quốc tế</button>
-                    <button class="opt-select">Thẻ tín dụng</button>
-                    <button class="opt-select">...</button>
+        <!-- MODAL SỬA GIAO DỊCH -->
+        <div class="modal-overlay" id="editTransaction">
+            <div class="modal-card form-card">
+                <h2 class="form-title">Sửa giao dịch</h2>
+                
+                <!-- Input ẩn để lưu ID giao dịch đang sửa -->
+                <input type="hidden" id="editTxId">
+
+                <div class="form-group">
+                    <label>Loại giao dịch</label>
+                    <div class="grid-options">
+                        <button class="opt-select" id="editIncomeBtn" onclick="selectEditType('income', this)">Tiền vào</button>
+                        <button class="opt-select" id="editExpenseBtn" onclick="selectEditType('expense', this)">Tiền ra</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Chọn thời gian</label>
+                    <input type="date" class="form-input" id="editTxDate">
+                </div>
+
+                <div class="form-group">
+                    <label>Chọn ví</label>
+                    <select class="form-input" id="editTxWallet" style="appearance: auto; cursor: pointer;">
+                        <option value="">-- Chọn ví --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Danh mục</label>
+                    <select class="form-input" id="editTxCategory" style="appearance: auto; cursor: pointer;">
+                        <option value="">-- Chọn danh mục --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Số tiền</label>
+                    <input type="number" placeholder="Nhập số tiền" class="form-input" id="editTxAmount">
+                </div>
+
+                <div class="form-group">
+                    <label>Ghi chú</label>
+                    <textarea class="form-input" id="editTxDesc" rows="2" placeholder="Nhập ghi chú..."></textarea>
+                </div>
+
+                <div class="modal-btns">
+                    <button class="btn-form-cancel" onclick="closeModal('editTransaction')">HỦY</button>
+                    <button class="btn-form-apply" onclick="updateTransaction()">LƯU</button>
                 </div>
             </div>
+        </div>
 
-            <div class="form-group">
-                <label>Theo dịch vụ</label>
-                <div class="grid-options">
-                    <button class="opt-select">Tất cả</button>
-                    <button class="opt-select">Nhận tiền</button>
-                    <button class="opt-select">Rút tiền</button>
-                    <button class="opt-select">Hóa đơn</button>
-                    <button class="opt-select">Giải trí</button>
-                    <button class="opt-select">...</button>
+        <!-- BỘ LỌC -->
+        <div class="modal-overlay" id="filterTransaction">
+            <div class="modal-card form-card filter-card">
+                <div class="filter-header">
+                    <h2 class="form-title mb-0">Bộ lọc Lịch sử giao dịch</h2>
+                </div>
+                <div class="filter-body">
+                    <div class="form-group">
+                        <label>Từ ngày</label>
+                        <input type="date" class="form-input" id="filterFromDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Đến ngày</label>
+                        <input type="date" class="form-input" id="filterToDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Theo ví</label>
+                        <select class="form-input" id="filterWallet" style="appearance: auto; cursor: pointer;">
+                            <option value="">Tất cả</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Theo dòng tiền</label>
+                        <div class="grid-options">
+                            <button class="opt-select selected" onclick="selectFilterType('all', this)">Tất cả</button>
+                            <button class="opt-select" onclick="selectFilterType('income', this)">Tiền vào</button>
+                            <button class="opt-select" onclick="selectFilterType('expense', this)">Tiền ra</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-btns">
+                    <button class="btn-form-cancel" onclick="closeModal('filterTransaction')">HỦY</button>
+                    <button class="btn-form-apply" onclick="applyFilter()">ÁP DỤNG</button>
                 </div>
             </div>
-
-            <div class="form-group">
-                <label>Theo dòng tiền</label>
-                <div class="grid-options">
-                    <button class="opt-select">Tất cả</button>
-                    <button class="opt-select">Tiền vào</button>
-                    <button class="opt-select">Tiền ra</button>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="filter-amount">Theo số tiền</label>
-                <input type="text" id="filter-amount" placeholder="Nhập số tiền" class="form-input" />
-            </div>
         </div>
 
-        <div class="modal-btns">
-            <button class="btn-form-cancel" onclick="closeModal('filterTransaction')">HỦY</button>
-            <button class="btn-form-apply">THÊM</button>
-        </div>
-    </div>
-    </div>
+    </main>
 
-    <!-- MODAL CHỈNH SỬA GIAO DỊCH -->
-<div class="modal-overlay" id="editTransaction" style="display: none;">
-    <div class="modal-card form-card">
-        <h2 class="form-title">Chỉnh sửa giao dịch</h2>
-
-        <!-- Ô Chọn thời gian -->
-        <div class="form-group">
-            <label>Chọn thời gian</label>
-            <input type="date" class="form-input" /> 
-        </div>
-
-        <!-- Ô Chọn tài khoản/thẻ -->
-        <div class="form-group">
-            <label>Chọn tài khoản/thẻ</label>
-            <div class="grid-options">
-                <button class="opt-select">Tiền mặt</button>
-                <button class="opt-select">Ví điện tử</button>
-                <button class="opt-select">Ngân hàng</button>
-                <button class="opt-select">Thẻ quốc tế</button>
-                <button class="opt-select">Thẻ tín dụng</button>
-                <button class="opt-select">...</button>
-            </div>
-        </div>
-
-        <!-- Ô Chọn danh mục -->
-        <div class="form-group">
-            <label>Theo danh mục</label>
-            <div class="grid-options">
-                <button class="opt-select">Tất cả</button>
-                <button class="opt-select">Mua sắm</button>
-                <button class="opt-select">Điện nước</button>
-                <button class="opt-select">Hóa đơn</button>
-                <button class="opt-select">Giải trí</button>
-                <button class="opt-select">...</button>
-            </div>
-        </div>
-
-        <!-- Ô Nhập số tiền -->
-        <div class="form-group">
-            <label>Theo số tiền</label>
-            <input type="text" placeholder="Dữ liệu sẽ load ở đây..." class="form-input" />
-        </div>
-
-        <!-- Ô Ghi chú -->
-        <div class="form-group">
-            <label class="form-label">Ghi chú</label>
-            <textarea class="form-input" rows="2" placeholder="Dữ liệu ghi chú sẽ load ở đây..."></textarea>
-        </div>
-
-        <!-- Nút hành động -->
-        <div class="modal-btns">
-            <button class="btn-form-cancel" onclick="closeModal('editTransaction')">HỦY</button>
-            <button class="btn-form-apply" onclick="closeModal('editTransaction')">CẬP NHẬT</button>
-        </div>
-    </div>
-</div>
-        
-</main>
-    
-   <script src="../js/model.js"></script> 
-   <script src="../js/global-menu.js"></script>
-
-   <script>
-    // Hàm mở bảng
-    function showModal(id) {
-        var modal = document.getElementById(id);
-        if(modal) {
-            modal.style.display = 'flex'; // hoặc 'block' tùy CSS của bạn
-        } else {
-            console.log("Lỗi: Không tìm thấy ID " + id);
-        }
-    }
-
-    // Hàm đóng bảng
-    function closeModal(id) {
-        var modal = document.getElementById(id);
-        if(modal) {
-            modal.style.display = 'none';
-        }
-    }
-</script>
+    <script src="../js/api.js"></script>
+    <script src="../js/model.js"></script>
+    <script src="../js/global-menu.js"></script>
+    <script src="../js/transaction.js"></script>
 </body>
-    
 </html>
-
