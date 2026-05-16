@@ -44,7 +44,7 @@ function renderProgressList(goals) {
         stats.forEach(stat => {
             // Giới hạn phần trăm tối đa là 100% để thanh màu không bị tràn ra ngoài
             const pct = Math.min(stat.percentage, 100);
-            const fillColor = stat.is_exceeded ? 'fill-red' : pct > 70 ? 'fill-blue' : 'fill-green';
+            const fillColor = stat.is_exceeded ? 'fill-red' : 'fill-green';
             
             // Format tiền tệ
             const spentStr = Number(stat.spent).toLocaleString('vi-VN');

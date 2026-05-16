@@ -40,11 +40,14 @@ function renderWallets(wallets) {
         item.classList.add('wallet-item');
         item.dataset.id = wallet.id;
 
+        const balanceNum = Number(wallet.balance);
+        const balanceColor = balanceNum < 0 ? '#ff4d4d' : '#28b463'; // Âm thì màu đỏ, dương/không thì màu xanh
+
         item.innerHTML = `
             <div style="background: #ffffff; padding: 18px 20px; border-radius: 16px; border: 1px solid #eef0f2; box-shadow: 0 4px 12px rgba(0,0,0,0.03); display:flex; justify-content:space-between; align-items:center; margin-bottom: 16px;">
                 <div style="display:flex; flex-direction:column; gap:6px;">
                     <span style="font-weight:bold; font-size:16px; color:#333;">${wallet.name}</span>
-                    <span style="font-size:15px; color:#555;">Số dư: <b style="font-size:18px; color:#28b463;">${Number(wallet.balance).toLocaleString('vi-VN')} vnđ</b></span>
+                    <span style="font-size:15px; color:#555;">Số dư: <b style="font-size:18px; color:${balanceColor};">${balanceNum.toLocaleString('vi-VN')} vnđ</b></span>
                 </div>
                 
                 <div style="display: flex; gap: 10px;">
