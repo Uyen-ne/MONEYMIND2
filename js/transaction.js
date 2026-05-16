@@ -1,5 +1,5 @@
 let allTransactions = [];
-let selectedType = 'expense';
+let allCategories = []; // Mảng toàn cục để lưu danh sách danh mục
 let filterType = 'all';
 
 // ========== LOAD GIAO DỊCH ==========
@@ -18,7 +18,7 @@ async function loadTransactions(params = {}) {
         if (res.status === 401) { window.location.href = 'login.html'; return; }
 
         const data = await res.json();
-        allTransactions = data.data.data || data.data || [];
+        allTransactions = data.data?.data || data.data || [];
         renderTransactions(allTransactions);
 
     } catch (error) {
@@ -71,17 +71,14 @@ function createTransactionCard(t) {
             <p class="balance">Ví: ${walletName} | ${Number(t.amount).toLocaleString('vi-VN')} đ</p>
         </div>
         
-        <!-- Đã đổi flex-direction thành row và thêm CSS cho nút Sửa/Xóa -->
         <div style="display:flex; flex-direction:row; align-items:center; gap:12px;">
             <button class="tag-btn" style="background-color:${categoryColor}; border:1px solid #ddd; padding: 6px 12px; border-radius: 20px; font-size: 12px; cursor: default;">${categoryName}</button>
             
             <div style="display: flex; gap: 8px;">
-                <!-- Nút Sửa -->
                 <button onclick="openEditTransaction(${t.id})" style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid #eaeaea; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: background 0.2s;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                 </button>
                 
-                <!-- Nút Xóa -->
                 <button onclick="deleteTransaction(${t.id}, this)" style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid #eaeaea; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05); transition: background 0.2s;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff7b7b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                 </button>
@@ -104,18 +101,9 @@ async function addTransaction() {
     if (!amount) { alert('Vui lòng nhập số tiền!'); return; }
     if (!transaction_date) { alert('Vui lòng chọn ngày!'); return; }
 
-    // Kiểm tra số dư nếu là chi tiêu
-    if (selectedType === 'expense') {
-        const res = await fetch(`${BASE_URL}/wallets/${wallet_id}`, {
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
-        });
-        const data = await res.json();
-        const balance = Number(data.data?.balance || 0);
-        if (amount > balance) {
-            alert(`Số dư không đủ! Số dư hiện tại: ${balance.toLocaleString('vi-VN')} đ`);
-            return;
-        }
-    }
+    // TỰ ĐỘNG TÌM LOẠI GIAO DỊCH TỪ DANH MỤC  
+    const selectedCat = allCategories.find(c => c.id == category_id);
+    const autoType = selectedCat ? selectedCat.type : 'expense'; // Mặc định là expense nếu lỗi
 
     try {
         const res = await fetch(`${BASE_URL}/transactions`, {
@@ -124,7 +112,7 @@ async function addTransaction() {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
-            body: JSON.stringify({ wallet_id, category_id, amount, type: selectedType, transaction_date, description })
+            body: JSON.stringify({ wallet_id, category_id, amount, type: autoType, transaction_date, description })
         });
 
         const data = await res.json();
@@ -140,49 +128,23 @@ async function addTransaction() {
 }
 
 // ========== SỬA GIAO DỊCH ==========
-let selectedEditType = 'expense';
-
-// Hàm chọn loại Tiền vào / Tiền ra cho form sửa
-function selectEditType(type, btn) {
-    selectedEditType = type;
-    btn.closest('.grid-options').querySelectorAll('.opt-select')
-        .forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-}
-
 // Hàm mở Modal và đổ dữ liệu cũ vào Form
 function openEditTransaction(id) {
-    // Tìm giao dịch trong mảng allTransactions đã load ban đầu
     const tx = allTransactions.find(t => t.id === id);
     if (!tx) return;
 
-    // Gán ID vào input ẩn
     document.getElementById('editTxId').value = tx.id;
 
-    // Đổ dữ liệu vào các ô
     const date = new Date(tx.transaction_date);
-    document.getElementById('editTxDate').value = date.toISOString().split('T')[0]; // Format YYYY-MM-DD
+    document.getElementById('editTxDate').value = date.toISOString().split('T')[0];
     document.getElementById('editTxAmount').value = tx.amount;
     document.getElementById('editTxDesc').value = tx.description || '';
 
-    // Copy danh sách ví và danh mục từ form thêm sang form sửa để người dùng chọn
     document.getElementById('editTxWallet').innerHTML = document.getElementById('txWallet').innerHTML;
     document.getElementById('editTxCategory').innerHTML = document.getElementById('txCategory').innerHTML;
 
-    // Set giá trị ví và danh mục cũ
     document.getElementById('editTxWallet').value = tx.wallet_id;
     document.getElementById('editTxCategory').value = tx.category_id;
-
-    // Kích hoạt đúng nút Tiền vào / Tiền ra
-    selectedEditType = tx.type;
-    document.getElementById('editIncomeBtn').classList.remove('selected');
-    document.getElementById('editExpenseBtn').classList.remove('selected');
-    
-    if (tx.type === 'income') {
-        document.getElementById('editIncomeBtn').classList.add('selected');
-    } else {
-        document.getElementById('editExpenseBtn').classList.add('selected');
-    }
 
     // Hiển thị modal
     showModal('editTransaction');
@@ -202,6 +164,10 @@ async function updateTransaction() {
         return;
     }
 
+    // TỰ ĐỘNG TÌM LOẠI GIAO DỊCH TỪ DANH MỤC
+    const selectedCat = allCategories.find(c => c.id == category_id);
+    const autoType = selectedCat ? selectedCat.type : 'expense';
+
     try {
         const res = await fetch(`${BASE_URL}/transactions/${id}`, {
             method: 'PUT',
@@ -213,7 +179,7 @@ async function updateTransaction() {
                 wallet_id, 
                 category_id, 
                 amount, 
-                type: selectedEditType, 
+                type: autoType, 
                 transaction_date, 
                 description 
             })
@@ -222,7 +188,7 @@ async function updateTransaction() {
         const data = await res.json();
         if (res.ok) {
             closeModal('editTransaction');
-            loadTransactions(); // Gọi lại hàm load để cập nhật danh sách ngay lập tức
+            loadTransactions(); 
         } else {
             alert(data.message || 'Cập nhật giao dịch thất bại!');
         }
@@ -260,6 +226,11 @@ async function loadWalletOptions() {
 
         const txWallet = document.getElementById('txWallet');
         const filterWallet = document.getElementById('filterWallet');
+        
+        // Reset option trước khi nạp để tránh trùng lặp nếu gọi nhiều lần
+        txWallet.innerHTML = '<option value="">-- Chọn ví --</option>';
+        filterWallet.innerHTML = '<option value="">Tất cả</option>';
+        
         wallets.forEach(w => {
             txWallet.innerHTML += `<option value="${w.id}">${w.name}</option>`;
             filterWallet.innerHTML += `<option value="${w.id}">${w.name}</option>`;
@@ -275,10 +246,12 @@ async function loadCategoryOptions() {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         });
         const data = await res.json();
-        const categories = data.data || data;
+        allCategories = data.data || data; // LƯU VÀO BIẾN TOÀN CỤC ĐỂ DÙNG TỰ ĐỘNG BẮT TYPE
 
         const txCategory = document.getElementById('txCategory');
-        categories.forEach(c => {
+        txCategory.innerHTML = '<option value="">-- Chọn danh mục --</option>';
+        
+        allCategories.forEach(c => {
             txCategory.innerHTML += `<option value="${c.id}">${c.name}</option>`;
         });
     } catch (error) {
@@ -310,14 +283,6 @@ function applyFilter() {
         to_date: toDate,
         wallet_id: walletId
     });
-}
-
-// ========== HELPER ==========
-function selectType(type, btn) {
-    selectedType = type;
-    btn.closest('.grid-options').querySelectorAll('.opt-select')
-        .forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
 }
 
 // ========== SEARCH ==========
