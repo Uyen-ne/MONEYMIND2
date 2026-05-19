@@ -42,7 +42,6 @@ function renderProgressList(goals) {
         }
 
         stats.forEach(stat => {
-            // Giới hạn phần trăm tối đa là 100% để thanh màu không bị tràn ra ngoài
             const pct = Math.min(stat.percentage, 100);
             const fillColor = stat.is_exceeded ? 'fill-red' : 'fill-green';
             
@@ -222,12 +221,15 @@ async function loadCategoryOptions() {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         });
         const data = await res.json();
-        const categories = data.data || [];
+        const categories = data.data || data;
 
         const select = document.getElementById('goalCategory');
-        categories.forEach(c => {
-            select.innerHTML += `<option value="${c.id}">${c.name}</option>`;
-        });
+        // Chỉ lấy danh mục tiền ra
+        categories
+            .filter(c => c.type === 'expense')
+            .forEach(c => {
+                select.innerHTML += `<option value="${c.id}">${c.name}</option>`;
+            });
     } catch (error) {
         console.error('Lỗi load danh mục:', error);
     }
