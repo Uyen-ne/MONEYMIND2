@@ -114,17 +114,20 @@ async function loadRecentTransactions() {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         });
         const data = await res.json();
-        const transactions = data.data?.data || data.data || data || [];
+        const allTransactions = data.data?.data || data.data || data || [];
 
         const list = document.getElementById('transList');
         list.innerHTML = '';
 
-        if (!transactions || transactions.length === 0) {
+        if (!allTransactions || allTransactions.length === 0) {
             list.innerHTML = '<p style="color:#aaa">Chưa có giao dịch nào.</p>';
             return;
         }
 
-        transactions.forEach(tx => {
+        // CHỈ LẤY 3 GIAO DỊCH ĐẦU TIÊN (GẦN NHẤT)
+        const top3Transactions = allTransactions.slice(0, 3);
+
+        top3Transactions.forEach(tx => {
             const date = new Date(tx.transaction_date);
             const dateStr = `Ngày ${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
             const isIncome = tx.type === 'income';
